@@ -7,10 +7,48 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RFIDProjet.styles.css" asp-append-version="true" />
+
+    <style>
+        /* Style pour le navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+            backdrop-filter: blur(10px); /* Effet de flou */
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .navbar:hover {
+                background-color: rgba(255, 255, 255, 0.95); /* Fond plus opaque au survol */
+            }
+
+        /* Style pour les liens de la navbar */
+        .navbar-nav .nav-link {
+            color: #333; /* Couleur du texte */
+            transition: color 0.3s ease; /* Transition fluide */
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #007bff; /* Changement de couleur au survol */
+            }
+
+        /* Image de fond */
+        body {
+            background-image: url('https://www.shutterstock.com/image-photo/abstract-flying-dragons-on-dark-600nw-2259314129.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fixer l'image de fond */
+            margin: 0; /* Supprimer les marges par défaut du corps */
+            padding: 0; /* Supprimer les rembourrages par défaut du corps */
+        }
+
+        /* Supprimer le footer */
+        .footer {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RFIDProjet</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -36,11 +74,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - RFIDProjet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

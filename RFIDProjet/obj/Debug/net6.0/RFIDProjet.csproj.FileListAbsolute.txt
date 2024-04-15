@@ -59,3 +59,34 @@ C:\Users\ed\Documents\projet s8\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\r
 C:\Users\ed\Documents\projet s8\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.pdb
 C:\Users\ed\Documents\projet s8\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.genruntimeconfig.cache
 C:\Users\ed\Documents\projet s8\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\ref\RFIDProjet.dll
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\appsettings.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.staticwebassets.runtime.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.exe
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.deps.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.runtimeconfig.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.dll
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\bin\Debug\net6.0\RFIDProjet.pdb
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.AssemblyInfoInputs.cache
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.AssemblyInfo.cs
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.csproj.CoreCompileInputs.cache
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.RazorAssemblyInfo.cache
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.RazorAssemblyInfo.cs
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.sourcelink.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets\msbuild.RFIDProjet.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets\msbuild.build.RFIDProjet.props
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.RFIDProjet.props
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.RFIDProjet.props
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\scopedcss\bundle\RFIDProjet.styles.css
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\scopedcss\projectbundle\RFIDProjet.bundle.scp.css
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.dll
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\refint\RFIDProjet.dll
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.pdb
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.genruntimeconfig.cache
+C:\Users\mavin\Source\Repos\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\ref\RFIDProjet.dll

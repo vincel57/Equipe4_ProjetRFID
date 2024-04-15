@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RFIDProjet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2a7fafbdcb72794184d95f4f5547327f3030d99")]
 [assembly: System.Reflection.AssemblyProductAttribute("RFIDProjet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RFIDProjet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

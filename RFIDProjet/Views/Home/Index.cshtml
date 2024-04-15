@@ -1,15 +1,269 @@
-﻿@{
-    ViewData["Title"] = "Projet RFID";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #28324E; /* Fond bleu sombre */
+            color: #FFFFFF; /* Couleur du texte blanc */
+            padding: 20px; /* Espacement autour du contenu */
+        }
 
-    <ul class="Menu"> 
+        .welcome-title {
+            font-size: 2.5em; /* Taille du titre */
+            text-align: center; /* Centrage horizontal */
+            margin-bottom: 30px; /* Espacement en dessous */
+            text-transform: uppercase; /* Conversion en majuscules */
+            letter-spacing: 2px; /* Espacement entre les lettres */
+        }
+
+        .Menu {
+            list-style-type: none; /* Supprime les puces de la liste */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around; /* Centrage horizontal des éléments */
+        }
+
+            .Menu li {
+                position: relative; /* Position relative pour positionner le sous-menu */
+                width: calc(25% - 20px); /* Largeur des cartes */
+                background-color: rgba(255, 255, 255, 0.1); /* Fond transparent */
+                border-radius: 20px; /* Coins arrondis */
+                padding: 20px; /* Espacement à l'intérieur des cartes */
+                margin: 0 10px; /* Espacement entre les cartes */
+                text-align: center;
+                transition: background-color 0.3s ease; /* Transition fluide */
+            }
+
+                .Menu li:hover {
+                    background-color: rgba(255, 255, 255, 0.3); /* Fond transparent légèrement plus clair au survol */
+                }
+
+                .Menu li label {
+                    cursor: pointer; /* Curseur pointer */
+                }
+
+        /* Styles pour le formulaire */
+        .form-container {
+            display: none; /* Par défaut, le formulaire est caché */
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+            .form-container input[type="number"] {
+                width: 100px; /* Largeur des champs de nombre */
+            }
+
+            .form-container select {
+                width: 100px; /* Largeur des listes déroulantes */
+            }
+
+        .conteneur-bouton {
+            text-align: center; /* Centrage horizontal du bouton */
+        }
+
+        .bouton-envoyer {
+            background-color: #4CAF50; /* Couleur de fond verte */
+            color: white; /* Couleur du texte blanc */
+            padding: 10px 20px; /* Espacement autour du texte */
+            border: none; /* Pas de bordure */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur pointer */
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .bouton-envoyer:hover {
+                background-color: #45a049; /* Couleur de fond plus foncée au survol */
+            }
+
+        .import-section {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="welcome-title">Bienvenue sur notre site</h1>
+    <div class="import-section">
+        <form method="get" action="">
+            <label for="file">Importer un fichier :</label>
+            <input type="file" id="file" name="file">
+            <input type="submit" value="Importer">
+        </form>
+    </div>
+    <ul class="Menu">
         <li>
-            <h2><a asp-controller="ModeleAnalytique" asp-action="Index">Méthode analytique</a></h2>
+            <input type="checkbox" id="checkbox-Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
+            <label for="checkbox-Analytique">Méthode Analytique</label>
+            <div id="form-container-Analytique" class="form-container">
+                <form method="get" action="">
+                    <!-- Formulaire pour Analytique -->
+                    <div>
+                        <label for="Param1">Paramètre 1</label>
+                        <input type="number" name="Param1" id="Param1" value="10" data-default="10">
+                        <select name="Param1Type" id="Param1Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param2">Paramètre 2</label>
+                        <input type="number" name="Param2" id="Param2" value="10" data-default="10">
+                        <select name="Param2Type" id="Param2Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param3">Paramètre 3</label>
+                        <input type="number" name="Param3" id="Param3" value="10" data-default="10">
+                        <select name="Param3Type" id="Param3Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div class="conteneur-bouton">
+                        <button type="submit" class="bouton-envoyer">Valider</button>
+                    </div>
+                </form>
+            </div>
         </li>
         <li>
-            <h2><a asp-controller="MachineLearning" asp-action="Index">Machine Learning</a></h2>
+            <input type="checkbox" id="checkbox-KNN" name="method" value="KNN" onclick="showForm('KNN')">
+            <label for="checkbox-KNN">Méthode KNN</label>
+            <div id="form-container-KNN" class="form-container">
+                <form method="get" action="">
+                    <!-- Formulaire pour KNN -->
+                    <div>
+                        <label for="Param1">Paramètre 1</label>
+                        <input type="number" name="Param1" id="Param1" value="10" data-default="10">
+                        <select name="Param1Type" id="Param1Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param2">Paramètre 2</label>
+                        <input type="number" name="Param2" id="Param2" value="10" data-default="10">
+                        <select name="Param2Type" id="Param2Type">
+                            a
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param3">Paramètre 3</label>
+                        <input type="number" name="Param3" id="Param3" value="10" data-default="10">
+                        <select name="Param3Type" id="Param3Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div class="conteneur-bouton">
+                        <button type="submit" class="bouton-envoyer">Valider</button>
+                    </div>
+                </form>
+            </div>
         </li>
         <li>
-            <h2><a href="">Comparaison entre les méthodes</a></h2>
+            <input type="checkbox" id="checkbox-RandomForest" name="method" value="RandomForest" onclick="showForm('RandomForest')">
+            <label for="checkbox-RandomForest">Méthode RandomForest</label>
+            <div id="form-container-RandomForest" class="form-container">
+                <form method="get" action="">
+                    <!-- Formulaire pour RandomForest -->
+                    <div>
+                        <label for="Param1">Paramètre 1</label>
+                        <input type="number" name="Param1" id="Param1" value="10" data-default="10">
+                        <select name="Param1Type" id="Param1Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param2">Paramètre 2</label>
+                        <input type="number" name="Param2" id="Param2" value="10" data-default="10">
+                        <select name="Param2Type" id="Param2Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param3">Paramètre 3</label>
+                        <input type="number" name="Param3" id="Param3" value="10" data-default="10">
+                        <select name="Param3Type" id="Param3Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div class="conteneur-bouton">
+                        <button type="submit" class="bouton-envoyer">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </li>
+        <li>
+            <input type="checkbox" id="checkbox-SVM" name="method" value="SVM" onclick="showForm('SVM')">
+            <label for="checkbox-SVM">Méthode SVM</label>
+            <div id="form-container-SVM" class="form-container">
+                <form method="get" action="">
+                    <!-- Formulaire pour SVM -->
+                    <div>
+                        <label for="Param1">Paramètre 1</label>
+                        <input type="number" name="Param1" id="Param1" value="10" data-default="10">
+                        <select name="Param1Type" id="Param1Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param2">Paramètre 2</label>
+                        <input type="number" name="Param2" id="Param2" value="10" data-default="10">
+                        <select name="Param2Type" id="Param2Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Param3">Paramètre 3</label>
+                        <input type="number" name="Param3" id="Param3" value="10" data-default="10">
+                        <select name="Param3Type" id="Param3Type">
+                            <option value="int" data-default="10">Entier</option>
+                            <option value="float" data-default="10.0">Flottant</option>
+                        </select>
+                    </div>
+                    <div class="conteneur-bouton">
+                        <button type="submit" class="bouton-envoyer">Valider</button>
+                    </div>
+                </form>
+            </div>
         </li>
     </ul>
+
+    <!-- Script JavaScript -->
+    <script>
+        function showForm(methodName) {
+            var formContainer = document.getElementById('form-container-' + methodName);
+            if (formContainer.style.display === 'block') {
+                formContainer.style.display = 'none';
+            } else {
+                formContainer.style.display = 'block';
+            }
+
+            // Assure que le formulaire est affiché en bas de la carte
+            window.scrollTo({
+                top: formContainer.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
