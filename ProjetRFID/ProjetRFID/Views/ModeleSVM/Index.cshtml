@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Modèle SVM";
+}
+<style>
+    .conteneur-bouton {
+        text-align: center;
+    }
+
+    .bouton-envoyer {
+        margin: 0 auto;
+    }
+</style>
+<h2>Veuillez choisir vos paramètres</h2>
+<form method="get" action="">
+    <div>
+      <label for="Paramètre 1">Paramètre 1</label>
+      <input type="number" name="Param1" id="Param1" value="10" data-default="10">
+      <select name="Param1Type" id="Param1Type">
+                <option value="int" data-default="10">Entier</option>
+                <option value="float" data-default="10.0">Flottant</option>
+                
+      </select>
+    </div>
+    <div>
+    <label for="Paramètre 2">Paramètre 2</label>
+    <input type="number" name="Param2" id="Param2" value="10" data-default="10">
+        <select name="Param2Type" id="Param2Type">
+            <option value="int" data-default="10">Entier</option>
+            <option value="float" data-default="10.0">Flottant</option>
+        </select>
+    </div>
+    <div>
+    <label for="Paramètre 3">Paramètre 3</label>
+    <input type="number" name="Param3" id="Param3" value="10" data-default="10">
+        <select name="Param3Type" id="Param3Type">
+            <option value="int" data-default="20">Entier</option>
+            <option value="float" data-default="20.0">Flottant</option>
+        </select>
+    </div>
+    <div class="conteneur-bouton">
+        <button class="bouton-envoyer">Valider</button>
+    </div>
+</form>
+<script>
+    // Fonction pour mettre à jour la valeur du champ de saisie lorsque l'utilisateur sélectionne une option
+    document.querySelectorAll('select').forEach(select => {
+        select.addEventListener('change', function() {
+            const defaultValue = this.options[this.selectedIndex].getAttribute('data-default');
+            const inputId = this.id.replace('Type', '');
+            document.getElementById(inputId).value = defaultValue;
+        });
+    });
+</script>

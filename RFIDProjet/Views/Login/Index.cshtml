@@ -1,0 +1,33 @@
+﻿@model RFIDProjet.ViewModels.UserViewModel
+
+@if (Model.Authentifie)
+{
+    <h3>
+        Vous êtes déjà authentifié avec le login :
+        @Model.usere.loginE
+    </h3>
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+}
+else
+{
+    <p>
+        Veuillez vous authentifier :
+    </p>
+    using (Html.BeginForm())
+    {
+        <div>
+            @Html.LabelFor(m => m.usere.loginE)
+            @Html.TextBoxFor(m => m.usere.loginE)
+            @Html.ValidationMessageFor(m => m.usere.loginE)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.usere.passwordE)
+            @Html.PasswordFor(m => m.usere.passwordE)
+            @Html.ValidationMessageFor(m => m.usere.passwordE)
+        </div>
+        <input type="submit" value="Se connecter" action="Index">
+
+        <br />
+    }
+    
+}
