@@ -16,7 +16,9 @@ namespace RFIDProjet.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        } 
+
+
 
         public IActionResult Privacy()
         {
