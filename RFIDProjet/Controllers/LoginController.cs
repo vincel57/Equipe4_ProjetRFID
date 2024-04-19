@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using APIRFID.Model;
 using RFIDProjet.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-//using RFIDProjet.ControllersAPI;
+using RFIDProjet.ControllersAPI;
 
 namespace RFIDProjet.Controllers
 {
@@ -28,15 +28,15 @@ namespace RFIDProjet.Controllers
         [HttpPost]
         public ActionResult Index(UserViewModel viewModel)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                /*UserE usere = API.Instance.GetUserE(viewModel.usere.loginE, viewModel.usere.passwordE).Result;
+                UserE usere = API.Instance.GetUserE(viewModel.usere.loginE, viewModel.usere.passwordE).Result;
                 if (usere != null)
                 {
                     return Redirect("/Home/Index");
                 }
                 ModelState.AddModelError("usere.loginE", "Login et/ou mot de passe incorrect(s)");
-            */
+            
                 }
             return View(viewModel);
         }
