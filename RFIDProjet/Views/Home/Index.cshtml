@@ -92,6 +92,8 @@
     </style>
 </head>
 <body>
+    <button type="submit" class="bouton-envoyer" asp-controller="History" asp-action="Index" >Historique</button>
+
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
     <div class="import-section">
         <form method="get" action="">
@@ -109,9 +111,7 @@
                     <!-- Formulaire pour Analytique -->
                    
                   
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
+                  
                 </form>
             </div>
         </li>
@@ -161,9 +161,7 @@
                         <label for="Entraine">Entrainement</label>
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
+                   
                 </form>
             </div>
         </li>
@@ -197,9 +195,7 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
+                    
                 </form>
             </div>
         </li>
@@ -250,13 +246,21 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
+                    
                 </form>
             </div>
         </li>
+
+       
     </ul>
+    <form method="get" action="">
+        <!-- Formulaire pour Analytique -->
+
+
+        <div class="conteneur-bouton">
+            <button type="submit" class="bouton-envoyer">SIMULER</button>
+        </div>
+    </form>
 
     <!-- Script JavaScript -->
     <script>
