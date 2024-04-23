@@ -109,32 +109,33 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    
+                    // Vérifier le rôle de l'utilisateur
+                    if (User.IsInRole("Expert"))
+                    {
+                        // Redirection pour les utilisateurs avec le rôle "Expert"
+                        return RedirectToAction("Indexx", "Home");
+                    }
+                    else if (User.IsInRole("Simple"))
+                    {
+                        // Redirection pour les utilisateurs avec le rôle "Simple"
+                        return RedirectToAction("Index1", "Home");
+                    }
+                    return Redirect("/Home/Index");
                 }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
-                }
+                // Autres conditions de gestion des erreurs
             }
 
-            // If we got this far, something failed, redisplay form
+            // Si quelque chose a échoué, réafficher le formulaire de connexion
             return Page();
         }
+
     }
+
+    // If we got this far, something failed, redisplay form
+
 }
