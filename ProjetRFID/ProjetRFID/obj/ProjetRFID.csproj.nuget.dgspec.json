@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\33760\\Downloads\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
+    "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
   },
   "projects": {
-    "C:\\Users\\33760\\Downloads\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
+    "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\33760\\Downloads\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "projectUniqueName": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
         "projectName": "ProjetRFID",
-        "projectPath": "C:\\Users\\33760\\Downloads\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "projectPath": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
         "packagesPath": "C:\\Users\\33760\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\33760\\Downloads\\ProjetRFID\\ProjetRFID\\obj\\",
+        "outputPath": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\ProjetRFID\\ProjetRFID\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -122,7 +122,7 @@
                 <form method="get" action="">
                     <!-- Formulaire pour KNN -->
                     <div>
-                        <label for="n_neighbors">n_neighbors</label>
+                        <input type="checkbox" name="souhait" value="n_neighbors" id="n_neighbors"><label for="n_neighbors">n_neighbors</label>
                         <input type="number" name="n_neighbors" id="n_neighbors" value="5" data-default="5">
                         <p>
                             Détail : Il s'agit du nombre de voisins à utiliser par défaut pour les requêtes.
@@ -130,7 +130,7 @@
                  
                     </div>
                     <div>
-                        <label for="weight">weight</label>
+                        <input type="checkbox" name="souhait" value="weight" id="weight"><label for="weight">weight</label>
                        
                         <select name="weight" id="Select">
 
@@ -142,7 +142,7 @@
                         </p>
                     </div>
                     <div>
-                        <label for="metric">metric</label>
+                        <input type="checkbox" name="souhait" value="metric" id="metric"> <label for="metric">metric</label>
                         
                         <select name="metric" id="paramSelect">
                             <option value="minkowski">minkowski</option>
@@ -153,6 +153,45 @@
                             Détail : Il s'agit de la métrique à utiliser pour le calcul de la distance
                         </p>
                     </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="p" id="p"> <label for="p">p</label>
+                        <input type="number" name="p" id="2" value="2" data-default="2" min="2" step=" 0.1">
+                        <p>
+                            Détail : Il s'agit du paramètre de puissance pour la métrique de Minkowski
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="metric_params" id="metric_params"><label for="metric_params">metric_params</label>
+
+                        <select name="metric_params" id="paramSelect">
+                            <option value="none">none</option>
+                            <option value="dict">dict</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit des arguments de mots-clés supplémentaires pour la fonction métrique
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="algorithm" id="algorithm"><label for="algorithm">algorithm</label>
+
+                        <select name="algorithm" id="paramSelect">
+                            <option value="auto">auto</option>
+                            <option value="ball_tree">ball_tree</option>
+                            <option value="kd_tree">kd_tree</option>
+                            <option value="brute">brute</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit de l'algorithme utilisé pour calculer les voisins les plus proches
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="leaf_size" id="leaf_size"><label for="leaf_size">leaf_size</label>
+                        <input type="number" name="leaf_size" id="leaf_size" value="30" data-default="30" min=" 30">
+                        <p>
+                            Détail : Il s'agit de la taille de feuilles transmises a BallTree ou KDTree
+                        </p>
+                    </div>
+                   
                     <div>
                         <label for="test">Test</label>
                         <input type="number" name="test" id="test">
@@ -174,15 +213,89 @@
                 <form method="get" action="">
                     <!-- Formulaire pour RandomForest -->
                     <div>
-                        <label for="Param1">n_estimators</label>
+                        <input type="checkbox" name="souhait" value="n_estimators" id="n_estimators"><label for="Param1">n_estimators</label>
                         <input type="number" name="Param1" id="Param1" value="100" data-default="100" min=" 100">
                         <p>
                             Détail : Il s'agit du nombre d'arbres dans la forêt.
                         </p>
                     </div>
-                    
                     <div>
-                        <label for="Param3">max_depth</label>
+                        <input type="checkbox" name="souhait" value="criterion" id="criterion"><label for="criterion">criterion</label>
+                        <select name="criterion" id="paramSelect">
+                            <option value="gini">gini</option>
+                            <option value="entropie">entropie</option>
+                            <option value="log_loss">log_loss</option>
+                            
+                        </select>
+
+                        <p>
+                            Détail : Il s'agit d'une fonction permettant de mesurer la qualité d'une division
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_samples_split" id="min_samples_split"><label for="min_samples_split">min_samples_split</label>
+                        <input type="number" name="min_samples_split" id="min_samples_split" value="2" data-default="2" min="2">
+
+                        <p>
+                            Détail : Il s'agit du nombre minimal d'échantillons requis pour fractionner un noeud interne
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_samples_leaf" id="min_samples_leaf"> <label for="min_samples_leaf">min_samples_leaf</label>
+                        <input type="number" name="min_samples_leaf" id="min_samples_leaf" value="1" data-default="1" min="1">
+
+                        <p>
+                            Détail : Il s'agit du nombre minimal d'échantillons requis pour se trouver au niveau d'un noeud feuille
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_weight_fraction_leaf" id="min_weight_fraction_leaf"><label for="min_weight_fraction_leaf">min_weight_fraction_leaf</label>
+                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.0" data-default="0.0" min="0.0" step="0.1">
+
+                        <p>
+                            Détail : Il s'agit de la fraction pondérée minimale de la somme totale des poids
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_leaf_nodes" id="max_leaf_nodes"> <label for="max_leaf_nodes">max_leaf_nodes</label>
+                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="0" data-default="0" min="0" >
+
+                        <p>
+                            Détail : Il s'agit d'un nombre illimité de noeuds
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_impurity_decrease" id="min_impurity_decrease"> <label for="min_impurity_decrease">min_impurity_decrease</label>
+                        <input type="number" name="mmin_impurity_decrease" id="min_impurity_decrease" value="0.0" data-default="0.0" min="0.0" step="0.1">
+
+                        <p>
+                            Détail : Un noeud sera scindé si ce découpage induit une diminution de l'impureté
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="n_jobs" id="n_jobs"> <label for="n_jobs">n_jobs</label>
+                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="0" >
+
+                        <p>
+                            Détail : Il s'agit du nombre de tâches à exécuter en parallèle
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="entier détaillé" id="entier détaillé"> <label for="entier détaillé">entier détaillé</label>
+                        <input type="number" name="entier détaillé" id="entier détaillé" value="0" data-default="0" min="0">
+
+                        <p>
+                            Détail : Il contrôle le niveau de détail lors de l'ajustement et de la prédiction
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_depth" id="max_depth"> <label for="Param3">max_depth</label>
                         <input type="number" name="Param3" id="Param3" value="0" data-default="0" min="0">
                         <p>
                             Détail : Profondeur maximale de l’arbre. Si None, les noeuds sont développés jusqu’à ce que toutes les feuilles sont pures ou jusqu’à ce que toutes les feuilles contiennent moins de min_samples_split échantillons.
@@ -210,14 +323,14 @@
                 <form method="get" action="">
                     <!-- Formulaire pour SVM -->
                     <div>
-                        <label for="Param1">C</label>
+                        <input type="checkbox" name="souhait" value="C" id="C"> <label for="Param1">C</label>
                         <input type="number" name="Param1" id="Param1" value="1" data-default="1" step="0.1" min="1">
                        <p>
                             Détail : Il s'agit du paramètre de régularisation
                        </p>
                     </div>
                     <div>
-                        <label for="kernel">Kernel</label>
+                        <input type="checkbox" name="souhait" value="kernel" id="kernel"><label for="kernel">Kernel</label>
                         <select name="kernel" id="paramSelect">
                             <option value="rbf">rbf</option>
                             <option value="linear">linear</option>
@@ -230,7 +343,7 @@
                         </p>
                     </div>
                     <div>
-                        <label for="gamma">Gamma</label>
+                        <input type="checkbox" name="souhait" value="gamma" id="gamma"> <label for="gamma">Gamma</label>
                         
                         <select name="gamma" id="paramSelect">
                             <option value="scale">scale</option>
@@ -241,6 +354,57 @@
                             frontière de décision
                         </p>
                     </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="coef0" id="coef0"> <label for="coef0">coef0</label>
+                        <input type="number" name="coef0" id="coef0" value="0.0" data-default="0.0" min="0.0" step="0.1">
+
+                        <p>
+                            Détail : Il s'agit du terme indépendant dans la fonction du noyau
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="tol" id="tol"><label for="tol">tol</label>
+                        <input type="number" name="tol" id="tol" value="1e-3" data-default="1e-3"  step="0.1">
+
+                        <p>
+                            Détail : Il s'agit de la tolérance au critère d'arrêt
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="cache_size" id="cache_size"> <label for="cache_size">cache_size</label>
+                        <input type="number" name="cache_size" id="cache_size" value="200" data-default="200"  step="0.1">
+
+                        <p>
+                            Détail : Il s'agit de la taille du cache de noyau en Mo
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_iter" id="max_iter">  <label for="max_iter">max_iter</label>
+                        <input type="number" name="max_iter" id="max_iter" value="-1" data-default="-1" >
+
+                        <p>
+                            Détail : Il s'agit de la limite stricte sur les itérations dans le solveur
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="decision_function_shape" id="decision_function_shape"> <label for="decision_function_shape">decision_function_shape</label>
+                        <select name="decision_function_shape" id="paramSelect">
+                            <option value="ovo">ovo</option>
+                            <option value="ovr">ovr</option>
+            
+                        </select>
+
+                        <p>
+                            Détail : Il spécifie s'il faut renvoyer la fonction de décision un-contre-reste (ovr) ou l'original (ovo)
+                        </p>
+                    </div>
+
+                   
                     <div>
                         <label for="test">Test</label>
                         <input type="number" name="test" id="test">

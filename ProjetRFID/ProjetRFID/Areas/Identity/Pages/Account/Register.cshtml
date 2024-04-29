@@ -4,12 +4,19 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #28324E; /* Fond bleu sombre */
+        color: #000000; /* Couleur du texte noir */
+        padding: 20px; /* Espacement autour du contenu */
+    }
+</style>
 <div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h1>Create a new account.</h1>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">

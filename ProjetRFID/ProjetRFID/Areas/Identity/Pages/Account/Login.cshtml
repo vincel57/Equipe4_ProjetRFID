@@ -4,13 +4,20 @@
 @{
     ViewData["Title"] = "Log in";
 }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #28324E; /* Fond bleu sombre */
+        color: #000000; /* Couleur du texte noir */
+        padding: 20px; /* Espacement autour du contenu */
+    }
+</style>
 
-<h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h2>Veuillez-vous connecter</h2>
+                <h1>Veuillez-vous connecter</h1>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">
