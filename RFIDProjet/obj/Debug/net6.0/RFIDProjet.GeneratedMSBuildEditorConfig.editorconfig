@@ -9,63 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RFIDProjet
 build_property.RootNamespace = RFIDProjet
-build_property.ProjectDir = C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet\
+build_property.ProjectDir = C:\Users\33760\OneDrive - ESIGELEC\Bureau\S8Project\RFIDProjet\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet
+build_property.MSBuildProjectDirectory = C:\Users\33760\OneDrive - ESIGELEC\Bureau\S8Project\RFIDProjet
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Home/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Home/Privacy.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Login/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/MachineLearning/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/MachineLearning/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFjaGluZUxlYXJuaW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/ModeleAnalytique/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/ModeleAnalytique/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlQW5hbHl0aXF1ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/ModeleKNN/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/ModeleKNN/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlS05OXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/ModeleRandom/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/ModeleRandom/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlUmFuZG9tXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/ModeleSVM/Index.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/ModeleSVM/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlU1ZNXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Shared/Error.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/_ViewImports.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/_ViewStart.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/flavi/Equipe4_ProjetRFID/RFIDProjet/Views/Shared/_Layout.cshtml]
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/RFIDProjet/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-geethrs342

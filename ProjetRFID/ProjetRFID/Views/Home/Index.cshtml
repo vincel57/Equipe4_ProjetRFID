@@ -93,13 +93,7 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    <div class="import-section">
-        <form method="get" action="">
-            <label for="file">Importer un fichier :</label>
-            <input type="file" id="file" name="file">
-            <input type="submit" value="Importer">
-        </form>
-    </div>
+    
     <ul class="Menu">
         <li>
             <input type="checkbox" id="checkbox-Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
@@ -199,9 +193,6 @@
                     <div>
                         <label for="Entraine">Entrainement</label>
                         <input type="number" name="Entraine" id="Entraine">
-                    </div>
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
                     </div>
                 </form>
             </div>
@@ -310,9 +301,6 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
                 </form>
             </div>
         </li>
@@ -414,13 +402,20 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
-                    <div class="conteneur-bouton">
-                        <button type="submit" class="bouton-envoyer">Valider</button>
-                    </div>
+                    
                 </form>
             </div>
         </li>
     </ul>
+
+    <div class="import-section">
+        <form asp-controller="Home" asp-action="Analytical">
+            <label for="file">Importer un fichier :</label>
+            <input type="file" id="file" name="file">
+            <input type="button" value="Lancer Simulation" onclick="submitForms()">
+
+        </form>
+    </div>
 
     <!-- Script JavaScript -->
     <script>

@@ -574,3 +574,5 @@ C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.genrunt
 C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\ref\RFIDProjet.dll
 C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.Properties.Resources.resources
 C:\Users\flavi\Equipe4_ProjetRFID\RFIDProjet\obj\Debug\net6.0\RFIDProjet.csproj.GenerateResource.cache
+C:\Users\33760\OneDrive - ESIGELEC\Bureau\S8Project\RFIDProjet\obj\Debug\net6.0\RFIDProjet.Properties.Resources.resources
+C:\Users\33760\OneDrive - ESIGELEC\Bureau\S8Project\RFIDProjet\obj\Debug\net6.0\RFIDProjet.csproj.GenerateResource.cache

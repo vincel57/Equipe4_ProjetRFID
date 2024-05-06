@@ -11425,23 +11425,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\flavi\\.nuget\\packages\\": {},
+    "C:\\Users\\33760\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\flavi\\Equipe4_ProjetRFID\\RFIDProjet\\RFIDProjet.csproj",
+      "projectUniqueName": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\RFIDProjet\\RFIDProjet.csproj",
       "projectName": "RFIDProjet",
-      "projectPath": "C:\\Users\\flavi\\Equipe4_ProjetRFID\\RFIDProjet\\RFIDProjet.csproj",
-      "packagesPath": "C:\\Users\\flavi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\flavi\\Equipe4_ProjetRFID\\RFIDProjet\\obj\\",
+      "projectPath": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\RFIDProjet\\RFIDProjet.csproj",
+      "packagesPath": "C:\\Users\\33760\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\RFIDProjet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\flavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\33760\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11457,8 +11457,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\flavi\\Equipe4_ProjetRFID\\APIRFID\\APIRFID.csproj": {
-              "projectPath": "C:\\Users\\flavi\\Equipe4_ProjetRFID\\APIRFID\\APIRFID.csproj"
+            "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\APIRFID\\APIRFID.csproj": {
+              "projectPath": "C:\\Users\\33760\\OneDrive - ESIGELEC\\Bureau\\S8Project\\APIRFID\\APIRFID.csproj"
             }
           }
         }
