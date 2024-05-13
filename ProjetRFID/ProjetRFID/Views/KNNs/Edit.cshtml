@@ -1,0 +1,69 @@
+﻿@model ProjetRFID.Models.KNN
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>KNN</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="n_neighbors" class="control-label"></label>
+                <input asp-for="n_neighbors" class="form-control" />
+                <span asp-validation-for="n_neighbors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="weight" class="control-label"></label>
+                <input asp-for="weight" class="form-control" />
+                <span asp-validation-for="weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="metric" class="control-label"></label>
+                <input asp-for="metric" class="form-control" />
+                <span asp-validation-for="metric" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p" class="control-label"></label>
+                <input asp-for="p" class="form-control" />
+                <span asp-validation-for="p" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="metric_params" class="control-label"></label>
+                <input asp-for="metric_params" class="form-control" />
+                <span asp-validation-for="metric_params" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="algorithm" class="control-label"></label>
+                <input asp-for="algorithm" class="form-control" />
+                <span asp-validation-for="algorithm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="leaf_size" class="control-label"></label>
+                <input asp-for="leaf_size" class="form-control" />
+                <span asp-validation-for="leaf_size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precision" class="control-label"></label>
+                <input asp-for="precision" class="form-control" />
+                <span asp-validation-for="precision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

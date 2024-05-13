@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProjetRFID.Models.SVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kernel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gamma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.coef0)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cache_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.max_iter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precision)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.C)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kernel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gamma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coef0)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cache_size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.max_iter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precision)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

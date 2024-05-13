@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProjetRFID.Models;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
+//using ProjetRFID.DAL;
 
 namespace ProjetRFID.Controllers
 {
@@ -48,4 +49,7 @@ namespace ProjetRFID.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+    
+
+
 }

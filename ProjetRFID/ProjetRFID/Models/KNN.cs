@@ -10,6 +10,7 @@
         public string metric_params { get; set; }
         public string algorithm { get; set; }
         public int leaf_size { get; set; }
-        public DateTime date_simulation { get; set; }
+        public float precision { get; set; }
+       // public Simulation Simulation { get; set; }
     }
 }

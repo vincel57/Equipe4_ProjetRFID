@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProjetRFID.Models.KNN>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.n_neighbors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.metric)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.metric_params)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.algorithm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.leaf_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precision)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.n_neighbors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.metric)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.metric_params)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.algorithm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaf_size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precision)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

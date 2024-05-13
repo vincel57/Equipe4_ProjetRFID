@@ -178,6 +178,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Analytiques/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl0aXF1ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Analytiques/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl0aXF1ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Analytiques/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl0aXF1ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Analytiques/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl0aXF1ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Analytiques/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl0aXF1ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -190,24 +210,44 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/MachineLearning/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFjaGluZUxlYXJuaW5nXEluZGV4LmNzaHRtbA==
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/KNNs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS05Oc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/ModeleAnalytique/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlQW5hbHl0aXF1ZVxJbmRleC5jc2h0bWw=
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/KNNs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS05Oc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/ModeleKNN/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlS05OXEluZGV4LmNzaHRtbA==
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/KNNs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS05Oc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/ModeleRandom/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlUmFuZG9tXEluZGV4LmNzaHRtbA==
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/KNNs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS05Oc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/ModeleSVM/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxlU1ZNXEluZGV4LmNzaHRtbA==
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/KNNs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS05Oc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Random_Forest/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tX0ZvcmVzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Random_Forest/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tX0ZvcmVzdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Random_Forest/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tX0ZvcmVzdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Random_Forest/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tX0ZvcmVzdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Random_Forest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tX0ZvcmVzdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Shared/Error.cshtml]
@@ -220,6 +260,46 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Simulations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltdWxhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Simulations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltdWxhdGlvbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Simulations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltdWxhdGlvbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Simulations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltdWxhdGlvbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/Simulations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2ltdWxhdGlvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/SVMs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU1ZNc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/SVMs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU1ZNc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/SVMs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU1ZNc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/SVMs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU1ZNc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/SVMs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU1ZNc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/33760/OneDrive - ESIGELEC/Bureau/S8Project/ProjetRFID/ProjetRFID/Views/_ViewImports.cshtml]

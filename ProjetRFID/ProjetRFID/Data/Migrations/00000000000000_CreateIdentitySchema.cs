@@ -152,6 +152,40 @@ namespace ProjetRFID.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+             migrationBuilder.CreateTable(
+                name: "Simulation",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false),
+                    time = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Simulation", x => new { x.id });
+                    table.ForeignKey(
+                        name : "FK_Simulation_AspNetUsers_UserId",
+                        column : x=> x.UserId,
+                        principalTable : "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete : ReferentialAction.Cascade
+
+                        );
+                }
+                );
+             migrationBuilder.CreateTable(
+                name: "Analytique",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false),
+                    precision= table.Column<float>(nullable: false),
+
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Simulation", x => new { x.id });
+                }
+                );
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -215,6 +249,10 @@ namespace ProjetRFID.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+            migrationBuilder.DropTable(
+               name: "simulation");
+            migrationBuilder.DropTable(
+               name: "Analytique");
         }
     }
 }

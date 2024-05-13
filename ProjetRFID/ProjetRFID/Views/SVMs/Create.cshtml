@@ -1,0 +1,68 @@
+﻿@model ProjetRFID.Models.SVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="C" class="control-label"></label>
+                <input asp-for="C" class="form-control" />
+                <span asp-validation-for="C" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kernel" class="control-label"></label>
+                <input asp-for="kernel" class="form-control" />
+                <span asp-validation-for="kernel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gamma" class="control-label"></label>
+                <input asp-for="gamma" class="form-control" />
+                <span asp-validation-for="gamma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="coef0" class="control-label"></label>
+                <input asp-for="coef0" class="form-control" />
+                <span asp-validation-for="coef0" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tol" class="control-label"></label>
+                <input asp-for="tol" class="form-control" />
+                <span asp-validation-for="tol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cache_size" class="control-label"></label>
+                <input asp-for="cache_size" class="form-control" />
+                <span asp-validation-for="cache_size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="max_iter" class="control-label"></label>
+                <input asp-for="max_iter" class="form-control" />
+                <span asp-validation-for="max_iter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precision" class="control-label"></label>
+                <input asp-for="precision" class="form-control" />
+                <span asp-validation-for="precision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

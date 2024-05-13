@@ -1,0 +1,78 @@
+﻿@model ProjetRFID.Models.Random_Forest
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Random_Forest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="criterion" class="control-label"></label>
+                <input asp-for="criterion" class="form-control" />
+                <span asp-validation-for="criterion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="min_samples_split" class="control-label"></label>
+                <input asp-for="min_samples_split" class="form-control" />
+                <span asp-validation-for="min_samples_split" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="min_samples_leaf" class="control-label"></label>
+                <input asp-for="min_samples_leaf" class="form-control" />
+                <span asp-validation-for="min_samples_leaf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="min_weight_fraction_leaf" class="control-label"></label>
+                <input asp-for="min_weight_fraction_leaf" class="form-control" />
+                <span asp-validation-for="min_weight_fraction_leaf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="max_leaf_nodes" class="control-label"></label>
+                <input asp-for="max_leaf_nodes" class="form-control" />
+                <span asp-validation-for="max_leaf_nodes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="min_impurity_decrease" class="control-label"></label>
+                <input asp-for="min_impurity_decrease" class="form-control" />
+                <span asp-validation-for="min_impurity_decrease" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="n_jobs" class="control-label"></label>
+                <input asp-for="n_jobs" class="form-control" />
+                <span asp-validation-for="n_jobs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="entier_detail" class="control-label"></label>
+                <input asp-for="entier_detail" class="form-control" />
+                <span asp-validation-for="entier_detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="max_depth" class="control-label"></label>
+                <input asp-for="max_depth" class="form-control" />
+                <span asp-validation-for="max_depth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precision" class="control-label"></label>
+                <input asp-for="precision" class="form-control" />
+                <span asp-validation-for="precision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

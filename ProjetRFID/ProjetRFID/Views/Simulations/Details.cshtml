@@ -1,0 +1,48 @@
+﻿@model ProjetRFID.Models.Simulation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Simulation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Analytique)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Analytique.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SVM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SVM.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KNN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KNN.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Random_Forest)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Random_Forest.id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProjetRFID.Models.Random_Forest>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.criterion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_samples_split)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_samples_leaf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_weight_fraction_leaf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.max_leaf_nodes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_impurity_decrease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.n_jobs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.entier_detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.max_depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precision)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.criterion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_samples_split)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_samples_leaf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_weight_fraction_leaf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.max_leaf_nodes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.min_impurity_decrease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.n_jobs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entier_detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.max_depth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precision)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

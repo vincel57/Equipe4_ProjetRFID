@@ -1,0 +1,66 @@
+﻿@model ProjetRFID.Models.KNN
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>KNN</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.n_neighbors)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.n_neighbors)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.metric)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.metric)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.p)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.metric_params)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.metric_params)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.algorithm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.algorithm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.leaf_size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.leaf_size)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.precision)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.precision)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

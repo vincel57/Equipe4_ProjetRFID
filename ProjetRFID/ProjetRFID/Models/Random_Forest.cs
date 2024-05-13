@@ -12,7 +12,8 @@
         public int n_jobs { get; set; }
         public int entier_detail {  get; set; }
         public int max_depth { get; set; }
-        public DateTime date_simulation { get; set; }
+        public float precision { get; set; }
+       // public Simulation Simulation { get; set; }
 
     }
 }
