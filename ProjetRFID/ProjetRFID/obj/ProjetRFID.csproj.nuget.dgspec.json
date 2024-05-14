@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
+    "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
+    "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "projectUniqueName": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
         "projectName": "ProjetRFID",
-        "projectPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "projectPath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
         "packagesPath": "C:\\Users\\mavin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\obj\\",
+        "outputPath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mavin\\AppData\\Roaming\\NuGet\\NuGet.Config",

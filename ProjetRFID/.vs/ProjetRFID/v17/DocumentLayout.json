@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "ProjetRFID\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ProjetRFID\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAH4BAAAAAAAAAAAswIsBAAAZAAAA",
+              "ViewState": "AQIAAI0BAAAAAAAAAAAswKABAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-14T08:15:50.64Z",
               "EditorCaption": ""
@@ -43,8 +43,7 @@
               "RelativeToolTip": "ProjetRFID\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAFUAAAAAAAAAAAAswFAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T08:13:47.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T08:13:47.455Z"
             }
           ]
         }
