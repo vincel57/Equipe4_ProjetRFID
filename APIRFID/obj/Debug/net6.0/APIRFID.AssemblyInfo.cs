@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APIRFID")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37c32cdefc767c546625ed681cc5960963311131")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96a60ac39ab99792a7ad0c8bc74bcdde03b0fbd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("APIRFID")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APIRFID")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

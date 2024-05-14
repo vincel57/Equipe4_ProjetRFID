@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RFIDProjet", "RFIDProjet\RFIDProjet.csproj", "{10568497-81EB-4A7E-A92B-ED67B2FCC0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIRFID", "APIRFID\APIRFID.csproj", "{7A6FA082-5D10-40B8-B40B-76F715A1CDA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIRFID", "APIRFID\APIRFID.csproj", "{7A6FA082-5D10-40B8-B40B-76F715A1CDA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
