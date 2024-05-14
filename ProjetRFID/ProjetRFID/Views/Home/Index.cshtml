@@ -93,27 +93,27 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    
+      <form id="gg">
     <ul class="Menu">
         <li>
             <input type="checkbox" id="checkbox-Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
             <label for="checkbox-Analytique">Méthode Analytique</label>
             <div id="form-container-Analytique" class="form-container">
-                <form method="get" action="">
+
                     <!-- Formulaire pour Analytique -->
                    
                   
                     <div class="conteneur-bouton">
                         <button type="submit" class="bouton-envoyer">Valider</button>
                     </div>
-                </form>
+              
             </div>
         </li>
         <li>
             <input type="checkbox" id="checkbox-KNN" name="method" value="KNN" onclick="showForm('KNN')">
             <label for="checkbox-KNN">Méthode KNN</label>
             <div id="form-container-KNN" class="form-container">
-                <form method="get" action="">
+                
                     <!-- Formulaire pour KNN -->
                     <div>
                         <input type="checkbox" name="souhait" value="n_neighbors" id="n_neighbors"><label for="n_neighbors">n_neighbors</label>
@@ -194,14 +194,14 @@
                         <label for="Entraine">Entrainement</label>
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
-                </form>
+                
             </div>
         </li>
         <li>
             <input type="checkbox" id="checkbox-RandomForest" name="method" value="RandomForest" onclick="showForm('RandomForest')">
             <label for="checkbox-RandomForest">Méthode RandomForest</label>
             <div id="form-container-RandomForest" class="form-container">
-                <form method="get" action="">
+              
                     <!-- Formulaire pour RandomForest -->
                     <div>
                         <input type="checkbox" name="souhait" value="n_estimators" id="n_estimators"><label for="Param1">n_estimators</label>
@@ -301,14 +301,14 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
-                </form>
+                
             </div>
         </li>
         <li>
             <input type="checkbox" id="checkbox-SVM" name="method" value="SVM" onclick="showForm('SVM')">
             <label for="checkbox-SVM">Méthode SVM</label>
             <div id="form-container-SVM" class="form-container">
-                <form method="get" action="">
+                
                     <!-- Formulaire pour SVM -->
                     <div>
                         <input type="checkbox" name="souhait" value="C" id="C"> <label for="Param1">C</label>
@@ -403,20 +403,20 @@
                     </div>
 
                     
-                </form>
+               
             </div>
         </li>
     </ul>
-
-    <div class="import-section">
-        <form asp-controller="Home" asp-action="Analytical">
-            <label for="file">Importer un fichier :</label>
-            <input type="file" id="file" name="file">
-            <input type="button" value="Lancer Simulation" onclick="submitForms()">
-
-        </form>
+    </form>
+    <div class="col-md-8">
+        <div class="result">
+            @if (ViewBag.Result != null)
+            {
+                <h4>Result:</h4>
+                <pre>@Html.Raw(ViewBag.Result)</pre>
+            }
+        </div>
     </div>
-
     <!-- Script JavaScript -->
     <script>
         function showForm(methodName) {
@@ -433,8 +433,49 @@
                 behavior: 'smooth'
             });
         }
-       
-       
+
+        function submitForms() {
+            // Récupérer les formulaires sélectionnés
+            var forms = document.querySelectorAll('.form-container');
+
+            // Créer un tableau pour stocker les données des formulaires sélectionnés
+            var formDataArray = [];
+
+            // Parcourir chaque formulaire sélectionné
+            forms.forEach(function (form) {
+                // Créer un objet pour stocker les données du formulaire actuel
+                var formData = {};
+
+                // Récupérer les éléments de formulaire du formulaire actuel
+                var formElements = form.querySelectorAll('input, select');
+
+                // Parcourir chaque élément de formulaire
+                formElements.forEach(function (element) {
+                    // Ajouter les données de l'élément au tableau formData
+                    formData[element.name] = element.value;
+                });
+
+                // Ajouter les données du formulaire actuel au tableau formDataArray
+                formDataArray.push(formData);
+            });
+
+            // Envoyer les données au contrôleur via une requête fetch
+            fetch('/Home/Traitement', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formDataArray)
+            })
+                .then(response => {
+                    // Traiter la réponse du serveur si nécessaire
+                    console.log('Réponse du serveur :', response);
+                })
+                .catch(error => {
+                    // Gérer les erreurs
+                    console.error('Erreur lors de l\'envoi des données :', error);
+                });
+        }
     </script>
 </body>
 </html>

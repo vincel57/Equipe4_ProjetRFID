@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nH6EExYFXLc/oWsfbtV9qu3BMSn+L0LTxANBpWZArBJw10tnpNEdGORUhOzwuexunsskXULka9fpZlnDZhU3ug==",
+  "dgSpecHash": "1PUNI1TW/UDpJtJVgote7dCsxPo2Pf5A75jbJEp0LEBGB/AKne28/f9FQI0xNrNubtxicH2yc0kRC3M4sxJV7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+  "projectFilePath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mavin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\mavin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
