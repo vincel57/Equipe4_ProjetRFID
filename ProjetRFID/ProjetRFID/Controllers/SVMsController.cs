@@ -56,7 +56,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,C,kernel,gamma,coef0,tol,cache_size,max_iter,precision")] SVM sVM)
+        public async Task<IActionResult> Create([Bind("id,C,kernel,gamma,coef0,tol,cache_size,max_iter,decision_function_shape,precision")] SVM sVM)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,C,kernel,gamma,coef0,tol,cache_size,max_iter,precision")] SVM sVM)
+        public async Task<IActionResult> Edit(int id, [Bind("id,C,kernel,gamma,coef0,tol,cache_size,max_iter,decision_function_shape,precision")] SVM sVM)
         {
             if (id != sVM.id)
             {

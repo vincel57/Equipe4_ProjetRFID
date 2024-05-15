@@ -19,5 +19,7 @@ namespace ProjetRFID.Models
         [ForeignKey("Random_Forest")]
         public int idR { get; set; }
         public Random_Forest Random_Forest { get; set; }
+        [ForeignKey("AspNetUsers")]
+        public string UserId { get; set; }
     }
 }

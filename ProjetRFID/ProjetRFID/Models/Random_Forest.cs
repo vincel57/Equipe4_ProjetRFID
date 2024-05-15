@@ -3,6 +3,7 @@
     public class Random_Forest
     {
         public int id {  get; set; }
+        public int n_estimators {  get; set; }
         public string criterion { get; set; }
         public int min_samples_split { get; set; }
         public int min_samples_leaf { get; set; }

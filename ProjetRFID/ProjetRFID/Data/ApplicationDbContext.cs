@@ -23,10 +23,13 @@ namespace ProjetRFID.Data
         }
 
         public DbSet<ProjetRFID.Models.KNN> KNN { get; set; }
-        public DbSet<ProjetRFID.Models.Random_Forest> Random_Forest { get; set; }
-        public DbSet<ProjetRFID.Models.SVM> SVM { get; set; }
-        public DbSet<ProjetRFID.Models.Simulation> Simulation { get; set; }
+        
+       
+        
         public DbSet<ProjetRFID.Models.Analytique> Analytique { get; set; }
+        public DbSet<ProjetRFID.Models.Random_Forest>? Random_Forest { get; set; }
+        public DbSet<ProjetRFID.Models.SVM>? SVM { get; set; }
+        public DbSet<ProjetRFID.Models.Simulation>? Simulation { get; set; }
 
     }
 }

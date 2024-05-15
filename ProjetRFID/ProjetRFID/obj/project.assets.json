@@ -2158,10 +2158,10 @@
           }
         }
       },
-      "NuGet.Common/6.6.1": {
+      "NuGet.Common/6.9.1": {
         "type": "package",
         "dependencies": {
-          "NuGet.Frameworks": "6.6.1"
+          "NuGet.Frameworks": "6.9.1"
         },
         "compile": {
           "lib/netstandard2.0/NuGet.Common.dll": {}
@@ -2170,10 +2170,10 @@
           "lib/netstandard2.0/NuGet.Common.dll": {}
         }
       },
-      "NuGet.Configuration/6.6.1": {
+      "NuGet.Configuration/6.9.1": {
         "type": "package",
         "dependencies": {
-          "NuGet.Common": "6.6.1",
+          "NuGet.Common": "6.9.1",
           "System.Security.Cryptography.ProtectedData": "4.4.0"
         },
         "compile": {
@@ -2197,7 +2197,7 @@
           "lib/net5.0/NuGet.DependencyResolver.Core.dll": {}
         }
       },
-      "NuGet.Frameworks/6.6.1": {
+      "NuGet.Frameworks/6.9.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {}
@@ -7214,10 +7214,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Common/6.6.1": {
-      "sha512": "hW5NtShErO3qbdkyv7doCRsFNK9Rlcc7mVjYM+hg1sOAWheTh/oo95DzNbsZthiqyHZfaioopfWtzmoxNw9h4g==",
+    "NuGet.Common/6.9.1": {
+      "sha512": "FbuWZBjQ1NJXBDqCwSddN2yvw3Plq3sTCIh0nc66Hu8jrNr+BOaxlKZv78jvJ+pSy8BvurYOdF9sl9KoORjrtg==",
       "type": "package",
-      "path": "nuget.common/6.6.1",
+      "path": "nuget.common/6.9.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7225,14 +7225,14 @@
         "icon.png",
         "lib/net472/NuGet.Common.dll",
         "lib/netstandard2.0/NuGet.Common.dll",
-        "nuget.common.6.6.1.nupkg.sha512",
+        "nuget.common.6.9.1.nupkg.sha512",
         "nuget.common.nuspec"
       ]
     },
-    "NuGet.Configuration/6.6.1": {
-      "sha512": "9WbK8wgwPfRpSwuG+ZhMshE48qUYvPIw7VNLCncrq/in4vE6SGsuawPSxPJkkLBtcKTGbPMez5JDvUf6vEBgKg==",
+    "NuGet.Configuration/6.9.1": {
+      "sha512": "GM06pcUzWdNsizeGciqCjAhryfI1F/rQPETLDF+8pDRgzVpA+wKAR01/4aFU+IXzugnQ9LqOb5YyCRuR1OVZiQ==",
       "type": "package",
-      "path": "nuget.configuration/6.6.1",
+      "path": "nuget.configuration/6.9.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7240,7 +7240,7 @@
         "icon.png",
         "lib/net472/NuGet.Configuration.dll",
         "lib/netstandard2.0/NuGet.Configuration.dll",
-        "nuget.configuration.6.6.1.nupkg.sha512",
+        "nuget.configuration.6.9.1.nupkg.sha512",
         "nuget.configuration.nuspec"
       ]
     },
@@ -7260,10 +7260,10 @@
         "nuget.dependencyresolver.core.nuspec"
       ]
     },
-    "NuGet.Frameworks/6.6.1": {
-      "sha512": "iRtDhL0zPqVw037fHEK9bQljTKPuOHhfIkz86/IH2P8eetr910HTTe5G8lJTuzZHh592Ze/sYhh173HIFjPSfg==",
+    "NuGet.Frameworks/6.9.1": {
+      "sha512": "DaKh3lenPUvzGccPkbI97BIvA27z+/UsL3ankfoZlX/4vBVDK5N1sheFTQ+GuJf+IgSzsJz/A21SPUpQLHwUtA==",
       "type": "package",
-      "path": "nuget.frameworks/6.6.1",
+      "path": "nuget.frameworks/6.9.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7271,7 +7271,7 @@
         "icon.png",
         "lib/net472/NuGet.Frameworks.dll",
         "lib/netstandard2.0/NuGet.Frameworks.dll",
-        "nuget.frameworks.6.6.1.nupkg.sha512",
+        "nuget.frameworks.6.9.1.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
@@ -11491,23 +11491,30 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.29",
       "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.29",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.29",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
+      "NuGet.Configuration >= 6.9.1",
+      "NuGet.Frameworks >= 6.9.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mavin\\.nuget\\packages\\": {}
+    "C:\\Users\\33760\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+      "projectUniqueName": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
       "projectName": "ProjetRFID",
-      "projectPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
-      "packagesPath": "C:\\Users\\mavin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDA\\ProjetRFID\\ProjetRFID\\obj\\",
+      "projectPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+      "packagesPath": "C:\\Users\\33760\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\33760\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11515,6 +11522,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11567,6 +11575,14 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.16, )"
+          },
+          "NuGet.Configuration": {
+            "target": "Package",
+            "version": "[6.9.1, )"
+          },
+          "NuGet.Frameworks": {
+            "target": "Package",
+            "version": "[6.9.1, )"
           }
         },
         "imports": [
@@ -11588,7 +11604,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }

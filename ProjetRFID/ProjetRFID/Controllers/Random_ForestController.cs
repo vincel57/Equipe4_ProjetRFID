@@ -56,7 +56,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,criterion,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_leaf_nodes,min_impurity_decrease,n_jobs,entier_detail,max_depth,precision")] Random_Forest random_Forest)
+        public async Task<IActionResult> Create([Bind("id,n_estimators,criterion,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_leaf_nodes,min_impurity_decrease,n_jobs,entier_detail,max_depth,precision")] Random_Forest random_Forest)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,criterion,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_leaf_nodes,min_impurity_decrease,n_jobs,entier_detail,max_depth,precision")] Random_Forest random_Forest)
+        public async Task<IActionResult> Edit(int id, [Bind("id,n_estimators,criterion,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_leaf_nodes,min_impurity_decrease,n_jobs,entier_detail,max_depth,precision")] Random_Forest random_Forest)
         {
             if (id != random_Forest.id)
             {

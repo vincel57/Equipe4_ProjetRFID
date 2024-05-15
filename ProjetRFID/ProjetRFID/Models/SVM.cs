@@ -11,6 +11,7 @@
         public float tol { get; set; }
         public float cache_size { get; set; }
         public int max_iter { get; set; }
+        public string decision_function_shape { get; set; }
         public float precision { get; set; }
 
        // public Simulation Simulation { get; set; }

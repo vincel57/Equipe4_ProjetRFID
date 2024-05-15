@@ -63,7 +63,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,time,idA,idS,idk,idR")] Simulation simulation)
+        public async Task<IActionResult> Create([Bind("id,time,idA,idS,idk,idR,UserId")] Simulation simulation)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,time,idA,idS,idk,idR")] Simulation simulation)
+        public async Task<IActionResult> Edit(int id, [Bind("id,time,idA,idS,idk,idR,UserId")] Simulation simulation)
         {
             if (id != simulation.id)
             {

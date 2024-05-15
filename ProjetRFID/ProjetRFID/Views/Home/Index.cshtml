@@ -93,10 +93,10 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-      <form id="gg">
+      <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
     <ul class="Menu">
         <li>
-            <input type="checkbox" id="checkbox-Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
+            <input type="checkbox" id="checkbox_Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
             <label for="checkbox-Analytique">Méthode Analytique</label>
             <div id="form-container-Analytique" class="form-container">
 
@@ -110,7 +110,7 @@
             </div>
         </li>
         <li>
-            <input type="checkbox" id="checkbox-KNN" name="method" value="KNN" onclick="showForm('KNN')">
+            <input type="checkbox" id="checkbox_KNN" name="method" value="KNN" onclick="showForm('KNN')">
             <label for="checkbox-KNN">Méthode KNN</label>
             <div id="form-container-KNN" class="form-container">
                 
@@ -198,7 +198,7 @@
             </div>
         </li>
         <li>
-            <input type="checkbox" id="checkbox-RandomForest" name="method" value="RandomForest" onclick="showForm('RandomForest')">
+                <input type="checkbox" id="checkbox_RandomForest" name="RandomForest" value="RandomForest" onclick="showForm('RandomForest')">
             <label for="checkbox-RandomForest">Méthode RandomForest</label>
             <div id="form-container-RandomForest" class="form-container">
               
@@ -277,8 +277,8 @@
                     </div>
 
                     <div>
-                        <input type="checkbox" name="souhait" value="entier détaillé" id="entier détaillé"> <label for="entier détaillé">entier détaillé</label>
-                        <input type="number" name="entier détaillé" id="entier détaillé" value="0" data-default="0" min="0">
+                        <input type="checkbox" name="souhait" value="entier_detail" id="entier_detail"> <label for="entier_detaille">entier détaillé</label>
+                        <input type="number" name="entier_detail" id="entier_detail" value="0" data-default="0" min="0">
 
                         <p>
                             Détail : Il contrôle le niveau de détail lors de l'ajustement et de la prédiction
@@ -287,7 +287,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="max_depth" id="max_depth"> <label for="Param3">max_depth</label>
-                        <input type="number" name="Param3" id="Param3" value="0" data-default="0" min="0">
+                        <input type="number" name="max_depth" id="max_depth" value="0" data-default="0" min="0">
                         <p>
                             Détail : Profondeur maximale de l’arbre. Si None, les noeuds sont développés jusqu’à ce que toutes les feuilles sont pures ou jusqu’à ce que toutes les feuilles contiennent moins de min_samples_split échantillons.
                         </p>
@@ -305,14 +305,14 @@
             </div>
         </li>
         <li>
-            <input type="checkbox" id="checkbox-SVM" name="method" value="SVM" onclick="showForm('SVM')">
+            <input type="checkbox" id="checkbox_SVM" name="method" value="SVM" onclick="showForm('SVM')">
             <label for="checkbox-SVM">Méthode SVM</label>
             <div id="form-container-SVM" class="form-container">
                 
                     <!-- Formulaire pour SVM -->
                     <div>
                         <input type="checkbox" name="souhait" value="C" id="C"> <label for="Param1">C</label>
-                        <input type="number" name="Param1" id="Param1" value="1" data-default="1" step="0.1" min="1">
+                        <input type="number" name="C" id="C" value="1" data-default="1" step="0.1" min="1">
                        <p>
                             Détail : Il s'agit du paramètre de régularisation
                        </p>
@@ -412,7 +412,7 @@
 
             <label for="file">Importer un fichier :</label>
             <input type="file" id="file" name="file">
-            <input type="button" value="Lancer Simulation" onclick="submitForms()">
+            <input type="submit" value="Lancer Simulation" onclick="submitForms()">
 
 
         </div>
@@ -443,7 +443,7 @@
             });
         }
 
-        function submitForms() {
+      /**  function submitForms() {
             // Récupérer les formulaires sélectionnés
             var forms = document.querySelectorAll('.form-container');
 
@@ -484,7 +484,7 @@
                     // Gérer les erreurs
                     console.error('Erreur lors de l\'envoi des données :', error);
                 });
-        }
+        }**/
     </script>
 </body>
 </html>
