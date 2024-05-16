@@ -28,16 +28,10 @@ namespace ProjetRFID.Controllers
 
         public IActionResult Index()
         {
-            if (User.IsInRole("Simple"))
-            {
+            
+            
                 return RedirectToAction("Index1", "Home");
-            }
-            else if (User.IsInRole("Expert"))
-            {
-                return RedirectToAction("Indexx", "Home");
-            }
-            else
-                return RedirectToPage("/Account/Login", new { area = "Identity" });
+           
         }
         [Authorize(Roles = "Expert")]
         public IActionResult Indexx()
@@ -56,7 +50,7 @@ namespace ProjetRFID.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Traitement(string checkbox_Analytique, string checkbox_KNN, string checkbox_RandomForest, string checkbox_SVM, int n_neighbors, string weight, string metric, float p,
+        public async Task<ActionResult> Result(string checkbox_Analytique, string checkbox_KNN, string checkbox_RandomForest, string checkbox_SVM, int n_neighbors, string weight, string metric, float p,
             string metric_params, string algorithm, int leaf_size, int n_estimators, string criterion,
             int min_samples_split, int min_samples_leaf, float min_weight_fraction_leaf, int max_leaf_nodes,
             float min_impurity_decrease, int n_jobs, int entier_detail, int max_depth, float C, string kernel, string gamma,
@@ -94,13 +88,15 @@ namespace ProjetRFID.Controllers
                 {
                     var requestData = new
                     {
-                     n_neighbors = n_neighbors,
-                    weight = weight,
-                    metric = metric,
-                    p = p,
-                    metric_params = metric_params,
-                    algorithm = algorithm,
-                    leaf_size = leaf_size
+                        p = p,
+                        metric = metric,
+                        weight = weight,
+                        algorithm = algorithm,
+                        leaf_size = leaf_size,
+                        n_neighbors = n_neighbors,
+                        metric_params = metric_params
+                   
+                    
                 };
 
                     var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
@@ -119,7 +115,7 @@ namespace ProjetRFID.Controllers
                 {
                     var requestData = new
                     {
-                      n_estimators = n_estimators,
+                     n_estimators = n_estimators,
                     criterion = criterion,
                     min_samples_split = min_samples_split,
                     min_samples_leaf = min_samples_leaf,
@@ -132,7 +128,7 @@ namespace ProjetRFID.Controllers
                 };
 
                     var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
-                    var response = await client.PostAsync("http://localhost:5000/randomforest", content);
+                    var response = await client.PostAsync("http://localhost:5000/random", content);
                     var result = await response.Content.ReadAsStringAsync();
 
                     ViewBag.Result = result;
