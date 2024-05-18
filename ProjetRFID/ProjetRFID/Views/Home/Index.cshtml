@@ -96,7 +96,7 @@
       <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
     <ul class="Menu">
         <li>
-            <input type="checkbox" id="checkbox_Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
+                <input type="checkbox" id="checkbox_Analytique" name="checkbox_Analytique" value="Analytique" onclick="showForm('Analytique')">
             <label for="checkbox-Analytique">Méthode Analytique</label>
             <div id="form-container-Analytique" class="form-container">
 
@@ -110,7 +110,7 @@
             </div>
         </li>
         <li>
-            <input type="checkbox" id="checkbox_KNN" name="method" value="KNN" onclick="showForm('KNN')">
+                <input type="checkbox" id="checkbox_KNN" name="checkbox_KNN" value="KNN" onclick="showForm('KNN')">
             <label for="checkbox-KNN">Méthode KNN</label>
             <div id="form-container-KNN" class="form-container">
                 
@@ -198,7 +198,7 @@
             </div>
         </li>
         <li>
-                <input type="checkbox" id="checkbox_RandomForest" name="RandomForest" value="RandomForest" onclick="showForm('RandomForest')">
+                <input type="checkbox" id="checkbox_RandomForest" name="checkbox_RandomForest" value="RandomForest" onclick="showForm('RandomForest')">
             <label for="checkbox-RandomForest">Méthode RandomForest</label>
             <div id="form-container-RandomForest" class="form-container">
               
@@ -305,7 +305,7 @@
             </div>
         </li>
         <li>
-            <input type="checkbox" id="checkbox_SVM" name="method" value="SVM" onclick="showForm('SVM')">
+                <input type="checkbox" id="checkbox_SVM" name="checkbox_SVM" value="SVM" onclick="showForm('SVM')">
             <label for="checkbox-SVM">Méthode SVM</label>
             <div id="form-container-SVM" class="form-container">
                 
@@ -412,7 +412,7 @@
 
             <label for="file">Importer un fichier :</label>
             <input type="file" id="file" name="file">
-            <input type="submit" value="Lancer Simulation" onclick="submitForms()">
+            <input type="submit" value="Lancer Simulation" >
 
 
         </div>
