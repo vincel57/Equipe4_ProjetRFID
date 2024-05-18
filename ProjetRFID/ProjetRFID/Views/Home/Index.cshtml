@@ -93,15 +93,27 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
+<<<<<<< HEAD
       <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
     <ul class="Menu">
         <li>
                 <input type="checkbox" id="checkbox_Analytique" name="checkbox_Analytique" value="Analytique" onclick="showForm('Analytique')">
             <label for="checkbox-Analytique">Méthode Analytique</label>
             <div id="form-container-Analytique" class="form-container">
+=======
+    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
+        <ul class="Menu">
+            <li>
+                <input type="checkbox" id="checkbox_Analytique" name="method" value="Analytique" onclick="showForm('Analytique')">
+                <label for="checkbox-Analytique">Méthode Analytique</label>
+                <div id="form-container-Analytique" class="form-container">
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
 
                     <!-- Formulaire pour Analytique -->
+
+
                    
+<<<<<<< HEAD
                   
                     <div class="conteneur-bouton">
                         <button type="submit" class="bouton-envoyer">Valider</button>
@@ -114,6 +126,16 @@
             <label for="checkbox-KNN">Méthode KNN</label>
             <div id="form-container-KNN" class="form-container">
                 
+=======
+
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_KNN" name="method" value="KNN" onclick="showForm('KNN')">
+                <label for="checkbox-KNN">Méthode KNN</label>
+                <div id="form-container-KNN" class="form-container">
+
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
                     <!-- Formulaire pour KNN -->
                     <div>
                         <input type="checkbox" name="souhait" value="n_neighbors" id="n_neighbors"><label for="n_neighbors">n_neighbors</label>
@@ -121,15 +143,15 @@
                         <p>
                             Détail : Il s'agit du nombre de voisins à utiliser par défaut pour les requêtes.
                         </p>
-                 
+
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="weight" id="weight"><label for="weight">weight</label>
-                       
+
                         <select name="weight" id="Select">
 
-                            <option value="uniform" >uniform</option>
-                            <option value="distance" >distance</option>
+                            <option value="uniform">uniform</option>
+                            <option value="distance">distance</option>
                         </select>
                         <p>
                             Détail : Il s'agit de la fonction de poids utilisée dans la prédiction
@@ -137,10 +159,10 @@
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="metric" id="metric"> <label for="metric">metric</label>
-                        
+
                         <select name="metric" id="paramSelect">
                             <option value="minkowski">minkowski</option>
-                            <option value="euclidean" >euclidean</option>
+                            <option value="euclidean">euclidean</option>
                             <option value="manhattan">manhattan</option>
                         </select>
                         <p>
@@ -185,7 +207,7 @@
                             Détail : Il s'agit de la taille de feuilles transmises a BallTree ou KDTree
                         </p>
                     </div>
-                   
+
                     <div>
                         <label for="test">Test</label>
                         <input type="number" name="test" id="test">
@@ -194,6 +216,7 @@
                         <label for="Entraine">Entrainement</label>
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
+<<<<<<< HEAD
                 
             </div>
         </li>
@@ -202,6 +225,16 @@
             <label for="checkbox-RandomForest">Méthode RandomForest</label>
             <div id="form-container-RandomForest" class="form-container">
               
+=======
+
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_RandomForest" name="RandomForest" value="RandomForest" onclick="showForm('RandomForest')">
+                <label for="checkbox-RandomForest">Méthode RandomForest</label>
+                <div id="form-container-RandomForest" class="form-container">
+
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
                     <!-- Formulaire pour RandomForest -->
                     <div>
                         <input type="checkbox" name="souhait" value="n_estimators" id="n_estimators"><label for="Param1">n_estimators</label>
@@ -216,7 +249,7 @@
                             <option value="gini">gini</option>
                             <option value="entropie">entropie</option>
                             <option value="log_loss">log_loss</option>
-                            
+
                         </select>
 
                         <p>
@@ -251,7 +284,7 @@
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="max_leaf_nodes" id="max_leaf_nodes"> <label for="max_leaf_nodes">max_leaf_nodes</label>
-                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="0" data-default="0" min="0" >
+                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="0" data-default="0" min="0">
 
                         <p>
                             Détail : Il s'agit d'un nombre illimité de noeuds
@@ -269,7 +302,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="n_jobs" id="n_jobs"> <label for="n_jobs">n_jobs</label>
-                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="0" >
+                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="0">
 
                         <p>
                             Détail : Il s'agit du nombre de tâches à exécuter en parallèle
@@ -301,6 +334,7 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
+<<<<<<< HEAD
                 
             </div>
         </li>
@@ -309,30 +343,40 @@
             <label for="checkbox-SVM">Méthode SVM</label>
             <div id="form-container-SVM" class="form-container">
                 
+=======
+
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_SVM" name="method" value="SVM" onclick="showForm('SVM')">
+                <label for="checkbox-SVM">Méthode SVM</label>
+                <div id="form-container-SVM" class="form-container">
+
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
                     <!-- Formulaire pour SVM -->
                     <div>
                         <input type="checkbox" name="souhait" value="C" id="C"> <label for="Param1">C</label>
                         <input type="number" name="C" id="C" value="1" data-default="1" step="0.1" min="1">
-                       <p>
+                        <p>
                             Détail : Il s'agit du paramètre de régularisation
-                       </p>
+                        </p>
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="kernel" id="kernel"><label for="kernel">Kernel</label>
                         <select name="kernel" id="paramSelect">
                             <option value="rbf">rbf</option>
                             <option value="linear">linear</option>
-                            <option value="poly">poly</option> 
+                            <option value="poly">poly</option>
                             <option value="sigmoid">sigmoid</option>
                         </select>
-                   
+
                         <p>
                             Détail : Il spécifie le type de noyau à utiliser dans l’algorithme
                         </p>
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="gamma" id="gamma"> <label for="gamma">Gamma</label>
-                        
+
                         <select name="gamma" id="paramSelect">
                             <option value="scale">scale</option>
                             <option value="auto">auto</option>
@@ -354,7 +398,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="tol" id="tol"><label for="tol">tol</label>
-                        <input type="number" name="tol" id="tol" value="1e-3" data-default="1e-3"  step="0.1">
+                        <input type="number" name="tol" id="tol" value="1e-3" data-default="1e-3" step="0.1">
 
                         <p>
                             Détail : Il s'agit de la tolérance au critère d'arrêt
@@ -363,7 +407,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="cache_size" id="cache_size"> <label for="cache_size">cache_size</label>
-                        <input type="number" name="cache_size" id="cache_size" value="200" data-default="200"  step="0.1">
+                        <input type="number" name="cache_size" id="cache_size" value="200" data-default="200" step="0.1">
 
                         <p>
                             Détail : Il s'agit de la taille du cache de noyau en Mo
@@ -372,7 +416,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="max_iter" id="max_iter">  <label for="max_iter">max_iter</label>
-                        <input type="number" name="max_iter" id="max_iter" value="-1" data-default="-1" >
+                        <input type="number" name="max_iter" id="max_iter" value="-1" data-default="-1">
 
                         <p>
                             Détail : Il s'agit de la limite stricte sur les itérations dans le solveur
@@ -384,7 +428,7 @@
                         <select name="decision_function_shape" id="paramSelect">
                             <option value="ovo">ovo</option>
                             <option value="ovr">ovr</option>
-            
+
                         </select>
 
                         <p>
@@ -392,7 +436,7 @@
                         </p>
                     </div>
 
-                   
+
                     <div>
                         <label for="test">Test</label>
                         <input type="number" name="test" id="test">
@@ -402,6 +446,7 @@
                         <input type="number" name="Entraine" id="Entraine">
                     </div>
 
+<<<<<<< HEAD
                     
                
             </div>
@@ -413,10 +458,23 @@
             <label for="file">Importer un fichier :</label>
             <input type="file" id="file" name="file">
             <input type="submit" value="Lancer Simulation" >
+=======
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
 
 
+                </div>
+            </li>
+        </ul>
+
+
+
+        <div class="conteneur-bouton">
+            <button type="submit" class="bouton-envoyer">Lancer Simulation</button>
         </div>
+    
     </form>
+                
+   
     <div class="col-md-8">
         <div class="result">
             @if (ViewBag.Result != null)
@@ -443,48 +501,6 @@
             });
         }
 
-      /**  function submitForms() {
-            // Récupérer les formulaires sélectionnés
-            var forms = document.querySelectorAll('.form-container');
-
-            // Créer un tableau pour stocker les données des formulaires sélectionnés
-            var formDataArray = [];
-
-            // Parcourir chaque formulaire sélectionné
-            forms.forEach(function (form) {
-                // Créer un objet pour stocker les données du formulaire actuel
-                var formData = {};
-
-                // Récupérer les éléments de formulaire du formulaire actuel
-                var formElements = form.querySelectorAll('input, select');
-
-                // Parcourir chaque élément de formulaire
-                formElements.forEach(function (element) {
-                    // Ajouter les données de l'élément au tableau formData
-                    formData[element.name] = element.value;
-                });
-
-                // Ajouter les données du formulaire actuel au tableau formDataArray
-                formDataArray.push(formData);
-            });
-
-            // Envoyer les données au contrôleur via une requête fetch
-            fetch('/Home/Traitement', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formDataArray)
-            })
-                .then(response => {
-                    // Traiter la réponse du serveur si nécessaire
-                    console.log('Réponse du serveur :', response);
-                })
-                .catch(error => {
-                    // Gérer les erreurs
-                    console.error('Erreur lors de l\'envoi des données :', error);
-                });
-        }**/
     </script>
 </body>
 </html>

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
+    "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {}
   },
   "projects": {
-    "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
+    "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "projectUniqueName": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
         "projectName": "ProjetRFID",
-        "projectPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
-        "packagesPath": "C:\\Users\\33760\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\obj\\",
+        "projectPath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+        "packagesPath": "C:\\Users\\mavin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\33760\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -108,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

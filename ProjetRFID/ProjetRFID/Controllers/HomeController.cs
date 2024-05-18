@@ -11,7 +11,11 @@ using NuGet.Protocol;
 using System.Security.Claims;
 using System.Drawing;
 using Microsoft.DotNet.Scaffolding.Shared.CodeModifier.CodeChange;
+<<<<<<< HEAD
 using System.Text.Json;
+=======
+using System.Reflection.Metadata;
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
 
 
 namespace ProjetRFID.Controllers
@@ -28,16 +32,10 @@ namespace ProjetRFID.Controllers
 
         public IActionResult Index()
         {
-            if (User.IsInRole("Simple"))
-            {
+            
+            
                 return RedirectToAction("Index1", "Home");
-            }
-            else if (User.IsInRole("Expert"))
-            {
-                return RedirectToAction("Indexx", "Home");
-            }
-            else
-                return RedirectToPage("/Account/Login", new { area = "Identity" });
+           
         }
         [Authorize(Roles = "Expert")]
         public IActionResult Indexx()
@@ -55,6 +53,7 @@ namespace ProjetRFID.Controllers
             return View();
         }
 
+<<<<<<< HEAD
 
         public IActionResult Traitement([FromBody] JsonElement formDataArray)
          {
@@ -67,66 +66,129 @@ namespace ProjetRFID.Controllers
                      // Accédez aux valeurs des propriétés
                      var propertyName = property.Name;
                      var propertyValue = property.Value;
+=======
+        [HttpPost]
+        public async Task<ActionResult> Result(string checkbox_Analytique, string checkbox_KNN, string checkbox_RandomForest, string checkbox_SVM, int n_neighbors, string weight, string metric, float p,
+            string metric_params, string algorithm, int leaf_size, int n_estimators, string criterion,
+            int min_samples_split, int min_samples_leaf, float min_weight_fraction_leaf, int max_leaf_nodes,
+            float min_impurity_decrease, int n_jobs, int entier_detail, int max_depth, float C, string kernel, string gamma,
+            float coef0, float tol, float cache_size, int max_iter, string decision_function_shape, IFormFile file)
+        {
+            if (checkbox_Analytique == "Analytique")
+            {
+                var filePath = Path.Combine("Folder", file.FileName);
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
 
-                     // Manipulez les valeurs selon vos besoins
-                     if (propertyName == "method")
-                     {
-                         var method = propertyValue.GetString();
-                         // Faites quelque chose avec la valeur de la propriété 'method'
-                         System.Console.WriteLine($"Méthode : {method}");
-                     }
-                     else if (propertyName == "n_neighbors")
-                     {
-                         var n_neighbors = propertyValue.GetInt32();
-                         // Faites quelque chose avec la valeur de la propriété 'n_neighbors'
-                         System.Console.WriteLine($"Nombre de voisins : {n_neighbors}");
-                     }
-                     else if (propertyName == "weight")
-                     {
-                         var weight = propertyValue.GetString();
-                         // Faites quelque chose avec la valeur de la propriété 'weight'
-                         System.Console.WriteLine($"Poids : {weight}");
-                     }
-                     else if (propertyName == "metric")
-                     {
-                         var metric = propertyValue.GetString();
-                         // Faites quelque chose avec la valeur de la propriété 'metric'
-                         System.Console.WriteLine($"Metrique : {metric}");
-                     }
-                     else if (propertyName == "metric_params")
-                     {
-                         var metric_params = propertyValue.GetString();
-                         // Faites quelque chose avec la valeur de la propriété 'metric_params'
-                         System.Console.WriteLine($"Paramètre_Métrique : {metric_params}");
-                     }
-                     else if (propertyName == "algorithm")
-                     {
-                         var algorithm = propertyValue.GetString();
-                         // Faites quelque chose avec la valeur de la propriété 'algorithm'
-                         System.Console.WriteLine($"Algorithme : {algorithm}");
-                     }
-                     else if (propertyName == "leaf_size")
-                     {
-                         var leaf_size = propertyValue.GetInt32();
-                         // Faites quelque chose avec la valeur de la propriété 'leaf_size'
-                         System.Console.WriteLine($"Taille_feuilles : {leaf_size}");
-                     }
-                     else if (propertyName == "leaf_size")
-                     {
-                         var leaf_size = propertyValue.GetInt32();
-                         // Faites quelque chose avec la valeur de la propriété 'leaf_size'
-                         System.Console.WriteLine($"Taille_feuilles : {leaf_size}");
-                     }
+                // Enregistrer le fichier dans le répertoire spécifié
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
 
-                     // Ajoutez d'autres conditions pour d'autres propriétés si nécessaire
-                 }
-             }
-             else
-             {
-                 // Gérer le cas où le JSON n'est pas un objet
-                 System.Console.WriteLine("Le JSON n'est pas un objet");
-             }
+                // Créer un objet FormData avec le chemin du fichier au lieu du fichier lui-même
+                var formData = new MultipartFormDataContent();
+                formData.Add(new StringContent(filePath), "filePath");
 
+                // Envoyer la requête HTTP avec le chemin du fichier
+                using (var client = new HttpClient())
+                {
+                    var response = await client.PostAsync("http://localhost:5000/result", formData);
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    ViewBag.Result = result;
+                }
+                return View("Index1");
+
+            }
+
+            if (checkbox_KNN == "KNN")
+            {
+                using (var client = new HttpClient())
+                {
+                    var requestData = new
+                    {
+                        p = p,
+                        metric = metric,
+                        weight = weight,
+                        algorithm = algorithm,
+                        leaf_size = leaf_size,
+                        n_neighbors = n_neighbors,
+                        metric_params = metric_params
+                   
+                    
+                };
+
+                    var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync("http://localhost:5000/knn", content);
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    ViewBag.Result = result;
+                }
+
+                return View("Index");
+
+            }
+            if (checkbox_RandomForest == "RandomForest")
+            {
+                using (var client = new HttpClient())
+                {
+                    var requestData = new
+                    {
+                     n_estimators = n_estimators,
+                    criterion = criterion,
+                    min_samples_split = min_samples_split,
+                    min_samples_leaf = min_samples_leaf,
+                    min_weight_fraction_leaf = min_weight_fraction_leaf,
+                    max_leaf_nodes = max_leaf_nodes,
+                    min_impurity_decrease = min_impurity_decrease,
+                    n_jobs = n_jobs,
+                    entier_detail = entier_detail,
+                    max_depth = max_depth
+                };
+
+                    var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync("http://localhost:5000/random", content);
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    ViewBag.Result = result;
+                }
+
+                return View("Index");
+
+
+            }
+            if (checkbox_SVM == "SVM")
+            {
+                using (var client = new HttpClient())
+                {
+                    var requestData = new
+                    {
+                        C = C,
+                    kernel = kernel,
+                    gamma = gamma,
+                    coef0 = coef0,
+                    tol = tol,
+                    cache_size = cache_size,
+                    max_iter = max_iter,
+                    decision_function_shape = decision_function_shape
+                };
+
+                    var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync("http://localhost:5000/svm", content);
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    ViewBag.Result = result;
+                }
+
+                return View("Index");
+
+
+            }
+
+            return default;
+        }
+
+<<<<<<< HEAD
              // Vous pouvez également renvoyer les données pour confirmer qu'elles ont été reçues correctement
              return Ok(formDataArray);
          }
@@ -152,6 +214,25 @@ namespace ProjetRFID.Controllers
                      idA = analytique.id,
                      time = DateTime.Now,
                  };
+=======
+        public async Task<ActionResult> Traitement(string checkbox_Analytique, string checkbox_KNN, string checkbox_RandomForest, string checkbox_SVM, int n_neighbors, string weight, string metric,float p,
+            string metric_params, string algorithm,int leaf_size,int n_estimators,string criterion,
+            int min_samples_split,int min_samples_leaf,float min_weight_fraction_leaf,int max_leaf_nodes,
+            float min_impurity_decrease,int n_jobs,int entier_detail,int max_depth,float C,string kernel,string gamma,
+            float coef0, float tol, float cache_size,int max_iter, string decision_function_shape)
+        {
+            if (checkbox_Analytique == "Analytique")
+            {
+                Analytique analytique = new Analytique();
+                _context.Analytique.Add(analytique);
+                await _context.SaveChangesAsync();
+                Simulation simulation = new Simulation
+                {
+                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),//Pour récupérer l'Id de la personne qui est connectée
+                    idA = analytique.id,
+                    time = DateTime.Now,
+                };
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
 
                 _context.Add(simulation);
 

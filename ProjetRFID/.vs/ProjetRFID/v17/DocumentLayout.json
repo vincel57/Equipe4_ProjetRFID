@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\",
+  "WorkspaceRootPath": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\33760\\downloads\\equipe4_projetrfid\\projetrfid\\projetrfid\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -28,6 +29,49 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+=======
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\flash_api_test.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\flash_api_test.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\views\\home\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\views\\home\\index1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\analknn.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\analknn.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\controllers\\svmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\controllers\\svmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\controllers\\simulationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\controllers\\simulationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\models\\svm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\models\\svm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|c:\\users\\mavin\\source\\repos\\equipe4_projetrfidf\\projetrfid\\projetrfid\\models\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01D6CA9E-36EC-479F-8400-E773ADDE92AE}|ProjetRFID\\ProjetRFID.csproj|solutionrelative:projetrfid\\models\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
@@ -46,6 +90,7 @@
           "Children": [
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "SimulationsController.cs",
               "DocumentMoniker": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\Controllers\\SimulationsController.cs",
@@ -55,10 +100,47 @@
               "ViewState": "AQIAAEUAAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T21:02:41.34Z",
+=======
+              "DocumentIndex": 0,
+              "Title": "flash_api_test.py",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\flash_api_test.py",
+              "RelativeDocumentMoniker": "ProjetRFID\\flash_api_test.py",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\flash_api_test.py",
+              "RelativeToolTip": "ProjetRFID\\flash_api_test.py",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-05-15T23:59:27.344Z",
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+=======
+              "DocumentIndex": 8,
+              "Title": "SVM.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Models\\SVM.cs",
+              "RelativeDocumentMoniker": "ProjetRFID\\Models\\SVM.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Models\\SVM.cs",
+              "RelativeToolTip": "ProjetRFID\\Models\\SVM.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAA0AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T10:25:31.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SQLQuery1.sql",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\SQLQuery1.sql",
+              "RelativeDocumentMoniker": "SQLQuery1.sql",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\SQLQuery1.sql",
+              "RelativeToolTip": "SQLQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-15T09:21:09.792Z"
+            },
+            {
+              "$type": "Document",
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
               "DocumentIndex": 1,
               "Title": "dbo.Simulation [Donn\u00E9es]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_ProjetRFID_df5478db_4355_4def_a369_a7fcc381b301/True/SqlTable/dbo.Simulation.sql",
@@ -71,11 +153,15 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ProjetRFID\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ProjetRFID\\Controllers\\HomeController.cs",
+<<<<<<< HEAD
               "ViewState": "AQIAAKoAAAAAAAAAAAAAALYAAAAZAAAA",
+=======
+              "ViewState": "AQIAAD4AAAAAAAAAAAAswJwAAAAoAAAA",
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T20:43:28.811Z",
               "EditorCaption": ""
@@ -124,6 +210,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+<<<<<<< HEAD
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ProjetRFID\\Views\\Home\\Index.cshtml",
@@ -133,6 +220,88 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-14T08:15:50.64Z",
               "EditorCaption": ""
+=======
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ProjetRFID\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ProjetRFID\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAABoAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T10:31:16.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index1.cshtml",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index1.cshtml",
+              "RelativeDocumentMoniker": "ProjetRFID\\Views\\Home\\Index1.cshtml",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index1.cshtml",
+              "RelativeToolTip": "ProjetRFID\\Views\\Home\\Index1.cshtml",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAHUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-15T18:40:40.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProjetRFID\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ProjetRFID\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAANkAAAAAAAAAAAAswPEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-14T08:15:50.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Analknn.py",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Analknn.py",
+              "RelativeDocumentMoniker": "ProjetRFID\\Analknn.py",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Analknn.py",
+              "RelativeToolTip": "ProjetRFID\\Analknn.py",
+              "ViewState": "AQIAAEsDAAAAAAAAAAAAAJwDAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-05-16T00:12:20.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SimulationsController.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\SimulationsController.cs",
+              "RelativeDocumentMoniker": "ProjetRFID\\Controllers\\SimulationsController.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\SimulationsController.cs",
+              "RelativeToolTip": "ProjetRFID\\Controllers\\SimulationsController.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAAIcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T10:31:45.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SVMsController.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\SVMsController.cs",
+              "RelativeDocumentMoniker": "ProjetRFID\\Controllers\\SVMsController.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Controllers\\SVMsController.cs",
+              "RelativeToolTip": "ProjetRFID\\Controllers\\SVMsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T10:49:01.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Simulation.cs",
+              "DocumentMoniker": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Models\\Simulation.cs",
+              "RelativeDocumentMoniker": "ProjetRFID\\Models\\Simulation.cs",
+              "ToolTip": "C:\\Users\\mavin\\source\\repos\\Equipe4_ProjetRFIDF\\ProjetRFID\\ProjetRFID\\Models\\Simulation.cs",
+              "RelativeToolTip": "ProjetRFID\\Models\\Simulation.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T09:08:28.568Z"
+>>>>>>> dd12891e0b00d675502f32ca0f624c52d37c27f5
             }
           ]
         }
