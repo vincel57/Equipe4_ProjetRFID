@@ -134,7 +134,7 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
                     if (User.IsInRole("Admin"))
                     {
                         // Redirection pour les utilisateurs avec le rôle "Simple"
-                        return RedirectToAction("Admin", "Home");
+                        return RedirectToAction("Index", "Historiques");
                     }
 
                     var user = await _userManager.FindByEmailAsync(Input.Email);

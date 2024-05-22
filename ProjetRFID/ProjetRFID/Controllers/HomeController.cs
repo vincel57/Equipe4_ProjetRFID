@@ -41,7 +41,7 @@ namespace ProjetRFID.Controllers
             }
             else if (User.IsInRole("Admin"))
             {
-                return RedirectToAction("Admin", "Home");
+                return RedirectToAction("Index", "Historiques");
             }
            else
 
