@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using ProjetRFID.Data;
 
 namespace ProjetRFID.Areas.Identity.Pages.Account
 {
@@ -21,11 +23,15 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
+            _context = context;
         }
 
         /// <summary>
@@ -113,19 +119,37 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    
                     // Vérifier le rôle de l'utilisateur
                     if (User.IsInRole("Expert"))
                     {
                         // Redirection pour les utilisateurs avec le rôle "Expert"
                         return RedirectToAction("Indexx", "Home");
                     }
-                    else if (User.IsInRole("Simple"))
+                    if (User.IsInRole("Simple"))
                     {
                         // Redirection pour les utilisateurs avec le rôle "Simple"
                         return RedirectToAction("Index1", "Home");
                     }
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        // Redirection pour les utilisateurs avec le rôle "Simple"
+                        return RedirectToAction("Admin", "Home");
+                    }
+
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+
+                    // Enregistrer l'historique de connexion
+                    var loginHistory = new Models.Historique
+                    {
+                        UserId = user.Id,
+                        time_connex = DateTime.UtcNow,
+                        UserName = user.UserName,
+                    };
+                    _context.Historique.Add(loginHistory);
+                    await _context.SaveChangesAsync();
                     return Redirect("/Home/Index");
+
                 }
                 // Autres conditions de gestion des erreurs
             }

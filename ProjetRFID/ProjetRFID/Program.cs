@@ -39,14 +39,15 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-   
+   // endpoints.MapControllers();
     endpoints.MapRazorPages();
 
     //Définition de la route par défaut vers la page de connexion
-    endpoints.MapGet("/", async context =>
+   /* endpoints.MapGet("/", async context =>
     {
         context.Response.Redirect("/Identity/Account/Login");
     });
+   */
     endpoints.MapControllerRoute(
        name: "default",
        pattern: "{controller=Home}/{action=Index}/{id?}");

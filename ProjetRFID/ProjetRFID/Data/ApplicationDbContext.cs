@@ -30,6 +30,8 @@ namespace ProjetRFID.Data
         public DbSet<ProjetRFID.Models.Random_Forest>? Random_Forest { get; set; }
         public DbSet<ProjetRFID.Models.SVM>? SVM { get; set; }
         public DbSet<ProjetRFID.Models.Simulation>? Simulation { get; set; }
+        public DbSet<ProjetRFID.Models.Historique>? Historique { get; set; }
+       // public DbSet<ProjetRFID.Models.Historique> Historique { get; set; }
 
     }
 }

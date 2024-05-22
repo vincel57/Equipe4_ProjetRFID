@@ -240,6 +240,30 @@ namespace ProjetRFID.Data.Migrations
                     b.ToTable("Analytique");
                 });
 
+            modelBuilder.Entity("ProjetRFID.Models.Historique", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("time_connex")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Historique");
+                });
+
             modelBuilder.Entity("ProjetRFID.Models.KNN", b =>
                 {
                     b.Property<int>("id")

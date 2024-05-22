@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Historique>
+@{
+    ViewData["Title"] = "Page Admin";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #28324E; /* Fond bleu sombre */
+            color: #FFFFFF; /* Couleur du texte blanc */
+            padding: 20px; /* Espacement autour du contenu */
+        }
+
+        .welcome-title {
+            font-size: 2.5em; /* Taille du titre */
+            text-align: center; /* Centrage horizontal */
+            margin-bottom: 30px; /* Espacement en dessous */
+            text-transform: uppercase; /* Conversion en majuscules */
+            letter-spacing: 2px; /* Espacement entre les lettres */
+        }
+
+        .Menu {
+            list-style-type: none; /* Supprime les puces de la liste */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around; /* Centrage horizontal des éléments */
+        }
+
+            .Menu li {
+                position: relative; /* Position relative pour positionner le sous-menu */
+                width: calc(25% - 20px); /* Largeur des cartes */
+                background-color: rgba(255, 255, 255, 0.1); /* Fond transparent */
+                border-radius: 20px; /* Coins arrondis */
+                padding: 20px; /* Espacement à l'intérieur des cartes */
+                margin: 0 10px; /* Espacement entre les cartes */
+                text-align: center;
+                transition: background-color 0.3s ease; /* Transition fluide */
+            }
+
+                .Menu li:hover {
+                    background-color: rgba(255, 255, 255, 0.3); /* Fond transparent légèrement plus clair au survol */
+                }
+
+                .Menu li label {
+                    cursor: pointer; /* Curseur pointer */
+                }
+
+        /* Styles pour le formulaire */
+        .form-container {
+            display: none; /* Par défaut, le formulaire est caché */
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+            .form-container input[type="number"] {
+                width: 100px; /* Largeur des champs de nombre */
+            }
+
+            .form-container select {
+                width: 100px; /* Largeur des listes déroulantes */
+            }
+
+        .conteneur-bouton {
+            text-align: center; /* Centrage horizontal du bouton */
+        }
+
+        .bouton-envoyer {
+            background-color: #4CAF50; /* Couleur de fond verte */
+            color: white; /* Couleur du texte blanc */
+            padding: 10px 20px; /* Espacement autour du texte */
+            border: none; /* Pas de bordure */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur pointer */
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .bouton-envoyer:hover {
+                background-color: #45a049; /* Couleur de fond plus foncée au survol */
+            }
+
+        .import-section {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+ <h1 class="welcome-title">Bienvenue sur notre site</h1>
+    <h1>Historique des connexions</h1>
+    
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Login Time</th>
+            <th>IP Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var history in Model)
+        {
+            <tr>
+                <td>@history.UserId</td>
+                <td>@history.time_connex</td>
+                <td>@history.UserName</td>
+            </tr>
+        }
+    </tbody>
+</table>
