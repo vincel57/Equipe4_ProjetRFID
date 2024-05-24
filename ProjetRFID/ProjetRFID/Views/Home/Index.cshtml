@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Page Expert";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,6 +9,7 @@
             font-family: Arial, sans-serif;
             background-color: #28324E; /* Fond bleu sombre */
             color: #FFFFFF; /* Couleur du texte blanc */
+
             padding: 20px; /* Espacement autour du contenu */
         }
 
@@ -97,7 +94,15 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
+    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Result">
+        <div class="import-section">
+
+            <label for="file">Importer un fichier :</label>
+            <input type="file" id="file" name="file">
+
+
+
+        </div>
         <ul class="Menu">
             <li>
                 <input type="checkbox" id="checkbox_Analytique" name="checkbox_Analytique" value="Analytique" onclick="showForm('Analytique')">
@@ -105,6 +110,9 @@
                 <div id="form-container-Analytique" class="form-container">
 
                     <!-- Formulaire pour Analytique -->
+
+
+
 
                 </div>
             </li>
@@ -157,7 +165,7 @@
                         <input type="checkbox" name="souhait" value="metric_params" id="metric_params"><label for="metric_params">metric_params</label>
 
                         <select name="metric_params" id="paramSelect">
-                            <option value="none">none</option>
+                            <option value="None">None</option>
                             <option value="dict">dict</option>
                         </select>
                         <p>
@@ -187,13 +195,13 @@
 
                     <div>
                         <label for="test">Test</label>
-                        <input type="number" name="test" id="test">
+                        <input type="number" name="testK" id="test" step="0.01">
                     </div>
-                    <div>
-                        <label for="Entraine">Entrainement</label>
-                        <input type="number" name="Entraine" id="Entraine">
-                    </div>
-
+                    <!--   <div>
+                         <label for="Entraine">Entrainement</label>
+                         <input type="number" name="EntraineK" id="Entraine">
+                     </div>
+                     -->
                 </div>
             </li>
             <li>
@@ -213,7 +221,7 @@
                         <input type="checkbox" name="souhait" value="criterion" id="criterion"><label for="criterion">criterion</label>
                         <select name="criterion" id="paramSelect">
                             <option value="gini">gini</option>
-                            <option value="entropie">entropie</option>
+                            <option value="entropy">entropy</option>
                             <option value="log_loss">log_loss</option>
 
                         </select>
@@ -242,7 +250,7 @@
                     </div>
                     <div>
                         <input type="checkbox" name="souhait" value="min_weight_fraction_leaf" id="min_weight_fraction_leaf"><label for="min_weight_fraction_leaf">min_weight_fraction_leaf</label>
-                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.0" data-default="0.0" min="0.0" step="0.1">
+                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.0" data-default="0.0" min="0.0" step="0.01">
 
                         <p>
                             Détail : Il s'agit de la fraction pondérée minimale de la somme totale des poids
@@ -259,7 +267,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="min_impurity_decrease" id="min_impurity_decrease"> <label for="min_impurity_decrease">min_impurity_decrease</label>
-                        <input type="number" name="mmin_impurity_decrease" id="min_impurity_decrease" value="0.0" data-default="0.0" min="0.0" step="0.1">
+                        <input type="number" name="mmin_impurity_decrease" id="min_impurity_decrease" value="0.0" data-default="0.0" min="0.0" step="0.001">
 
                         <p>
                             Détail : Un noeud sera scindé si ce découpage induit une diminution de l'impureté
@@ -268,7 +276,7 @@
 
                     <div>
                         <input type="checkbox" name="souhait" value="n_jobs" id="n_jobs"> <label for="n_jobs">n_jobs</label>
-                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="0">
+                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="-100">
 
                         <p>
                             Détail : Il s'agit du nombre de tâches à exécuter en parallèle
@@ -293,11 +301,11 @@
                     </div>
                     <div>
                         <label for="test">Test</label>
-                        <input type="number" name="test" id="test">
+                        <input type="number" name="testR" id="test" step="0.01">
                     </div>
                     <div>
                         <label for="Entraine">Entrainement</label>
-                        <input type="number" name="Entraine" id="Entraine">
+                        <input type="number" name="EntraineR" id="Entraine">
                     </div>
 
 
@@ -394,11 +402,11 @@
 
                     <div>
                         <label for="test">Test</label>
-                        <input type="number" name="test" id="test">
+                        <input type="number" name="testS" id="test" step="0.01">
                     </div>
                     <div>
                         <label for="Entraine">Entrainement</label>
-                        <input type="number" name="Entraine" id="Entraine">
+                        <input type="number" name="EntraineS" id="Entraine">
                     </div>
 
 
@@ -407,23 +415,42 @@
             </li>
         </ul>
 
-        <div class="import-section">
 
-            <label for="file">Importer un fichier :</label>
-            <input type="file" id="file" name="file">
-            <input type="submit" value="Lancer Simulation">
-
-
+        <div class="conteneur-bouton">
+            <button type="submit" class="bouton-envoyer" onclick="Result()>Lancer Simulation</button>
+            <button type="button" class="bouton" onclick="download()"> Telecharger </button>
         </div>
+
     </form>
+
+
     <div class="col-md-8">
         <div class="result">
-            @if (ViewBag.Result != null)
+            @if (ViewBag.ResultAnalytique != null)
             {
-                <h4>Result:</h4>
-                <pre>@Html.Raw(ViewBag.Result)</pre>
+                <h4>Resultat Analytique:</h4>
+                <pre>@Html.Raw(ViewBag.ResultAnalytique)</pre>
+            }
+
+            @if (ViewBag.ResultKNN != null)
+            {
+                <h4>Resultat KNN:</h4>
+                <pre>@Html.Raw(ViewBag.ResultKNN)</pre>
+            }
+
+            @if (ViewBag.ResultRandomForest != null)
+            {
+                <h4>Resultat Random Forest:</h4>
+                <pre>@Html.Raw(ViewBag.ResultRandomForest)</pre>
+            }
+
+            @if (ViewBag.ResultSVM != null)
+            {
+                <h4>Resultat SVM:</h4>
+                <pre>@Html.Raw(ViewBag.ResultSVM)</pre>
             }
         </div>
+
     </div>
     <!-- Script JavaScript -->
     <script>
@@ -442,48 +469,17 @@
             });
         }
 
-        /**  function submitForms() {
-              // Récupérer les formulaires sélectionnés
-              var forms = document.querySelectorAll('.form-container');
+        function download() {
+            document.getElementById('gg').action = '@Url.Action("DownloadPdf", "Home")';
+            document.getElementById('gg').submit();
+        }
 
-              // Créer un tableau pour stocker les données des formulaires sélectionnés
-              var formDataArray = [];
+        function Result() {
+            document.getElementById('gg').action = '@Url.Action("Result", "Home")';
+            document.getElementById('gg').submit();
+        }
 
-              // Parcourir chaque formulaire sélectionné
-              forms.forEach(function (form) {
-                  // Créer un objet pour stocker les données du formulaire actuel
-                  var formData = {};
 
-                  // Récupérer les éléments de formulaire du formulaire actuel
-                  var formElements = form.querySelectorAll('input, select');
-
-                  // Parcourir chaque élément de formulaire
-                  formElements.forEach(function (element) {
-                      // Ajouter les données de l'élément au tableau formData
-                      formData[element.name] = element.value;
-                  });
-
-                  // Ajouter les données du formulaire actuel au tableau formDataArray
-                  formDataArray.push(formData);
-              });
-
-              // Envoyer les données au contrôleur via une requête fetch
-              fetch('/Home/Traitement', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(formDataArray)
-              })
-                  .then(response => {
-                      // Traiter la réponse du serveur si nécessaire
-                      console.log('Réponse du serveur :', response);
-                  })
-                  .catch(error => {
-                      // Gérer les erreurs
-                      console.error('Erreur lors de l\'envoi des données :', error);
-                  });
-          }**/
     </script>
 </body>
 </html>
