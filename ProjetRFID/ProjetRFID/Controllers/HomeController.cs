@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using ProjetRFID.Data;
 using System.IO;
 using System.Threading.Tasks;
-
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +20,7 @@ using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Identity;
 using Document = iTextSharp.text.Document;
 using System.Drawing.Printing;
+using Newtonsoft.Json.Linq;
 
 
 
@@ -29,13 +29,15 @@ namespace ProjetRFID.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -49,7 +51,7 @@ namespace ProjetRFID.Controllers
             }
             else if (User.IsInRole("Admin"))
             {
-                return RedirectToAction("Index", "Historiques");
+                return RedirectToAction("Admin", "Home");
             }
            else
 
@@ -80,17 +82,35 @@ namespace ProjetRFID.Controllers
             var histories = await _context.Historique.ToListAsync();
             return View(histories);
         }
+        public IActionResult Edit()
+        {
+            // Ajoutez ici le code nécessaire pour préparer la vue
+            return View();
+        }
 
         [HttpPost]
-        public async Task<ActionResult> Result(
-   string Checkbox_Analytique, string Checkbox_KNN, string Checkbox_RandomForest, string Checkbox_SVM,
-   int n_neighbors, string weight, string metric, float p, string metric_params, string algorithm,
-   int leaf_size, int n_estimators, string criterion, int min_samples_split, int min_samples_leaf,
-   float min_weight_fraction_leaf, int max_leaf_nodes, float min_impurity_decrease, int n_jobs,
-   int entier_detail, int max_depth, float C, string kernel, string gamma, float coef0, float tol,
-   float cache_size, int max_iter, string decision_function_shape, IFormFile file, float testK,
-   float EntraineK, float testR, float EntraineR, float testS, float EntraineS)
+        public async Task<ActionResult> Traitement(string Checkbox_Analytique, string Checkbox_KNN, string Checkbox_RandomForest, string Checkbox_SVM,
+    int n_neighbors, string weight, string metric, float p, string metric_params, string algorithm,
+    int leaf_size, int n_estimators, string criterion, int min_samples_split, int min_samples_leaf,
+    float min_weight_fraction_leaf, int max_leaf_nodes, float min_impurity_decrease, int n_jobs,
+    int entier_detail, int max_depth, float C, string kernel, string gamma, float coef0, float tol,
+    float cache_size, int max_iter, string decision_function_shape, IFormFile file, float test)
         {
+            //méthode pour convertir en float
+            float ExtractNumber(string resultA)
+            {
+                if (!string.IsNullOrEmpty(resultA))
+                {
+
+                    dynamic jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(resultA);
+                    if (jsonResult != null && jsonResult.accuracy != null)
+                    {
+                        //  accuracy
+                        return (float)jsonResult.accuracy;
+                    }
+                }
+                return 0;
+            }
             // Gestion du fichier (si nécessaire)
             string filePath = null;
             if (file != null)
@@ -111,17 +131,45 @@ namespace ProjetRFID.Controllers
                     await file.CopyToAsync(stream);
                 }
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(userId);
+            var userName = user?.UserName;
 
             HttpClient client = new HttpClient();
 
+            // Analytique
             if (!string.IsNullOrEmpty(Checkbox_Analytique) && Checkbox_Analytique.Equals("Analytique"))
             {
+                // Appel API
                 var response = await client.PostAsync("http://localhost:5000/result", null);
-                var result = await response.Content.ReadAsStringAsync();
+                var resultA = await response.Content.ReadAsStringAsync();
 
-                ViewBag.ResultAnalytique = result;
-            }
+                ViewBag.ResultAnalytique = resultA;
 
+                var resultatJson = JObject.Parse(resultA);
+                float precision = (float) resultatJson.GetValue("Analytique");
+                // Enregistrement des données
+                Analytique analytique = new Analytique()
+                    {
+                       precison = precision,
+                    };
+                    _context.Analytique.Add(analytique);
+                    await _context.SaveChangesAsync();
+
+                    Simulation simulation = new Simulation()
+                    {
+                        UserId = userId,
+                        idA = analytique.id,
+                        time = DateTime.Now,
+                        UserName = userName,
+                    };
+                    _context.Simulation.Add(simulation); // Utilisez Add au lieu de Update pour ajouter une nouvelle entrée
+                    await _context.SaveChangesAsync();
+                }
+              
+            
+
+            // KNN
             if (!string.IsNullOrEmpty(Checkbox_KNN) && Checkbox_KNN.Equals("KNN"))
             {
                 var requestData = new
@@ -133,16 +181,41 @@ namespace ProjetRFID.Controllers
                     metric_params,
                     algorithm,
                     leaf_size,
-                    testK
+                    test
                 };
 
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/knn", content);
-                var result = await response.Content.ReadAsStringAsync();
+                var resultk = await response.Content.ReadAsStringAsync();
+                ViewBag.ResultKNN = resultk;
+                var resultatJson = JObject.Parse(resultk);
+                float precisionk = (float)resultatJson.GetValue("KNN");
 
-                ViewBag.ResultKNN = result;
+                KNN knn = new KNN()
+                {
+                    n_neighbors = n_neighbors,
+                    weight = weight,
+                    metric = metric,
+                    p = p,
+                    metric_params = metric_params,
+                    algorithm = algorithm,
+                    leaf_size = leaf_size,
+                    precision=precisionk,
+                };
+                _context.KNN.Add(knn);
+                await _context.SaveChangesAsync();
+                Simulation simulation = new Simulation()
+                {
+                    UserId = userId,
+                    idk = knn.id,
+                    time = DateTime.Now,
+                    UserName = userName,
+                };
+                _context.Add(simulation);
+                await _context.SaveChangesAsync();
             }
 
+            // RandomForest
             if (!string.IsNullOrEmpty(Checkbox_RandomForest) && Checkbox_RandomForest.Equals("RandomForest"))
             {
                 var requestData = new
@@ -156,16 +229,44 @@ namespace ProjetRFID.Controllers
                     min_impurity_decrease,
                     n_jobs,
                     max_depth,
-                    testR
+                    test
                 };
 
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/random", content);
-                var result = await response.Content.ReadAsStringAsync();
+                var resultr = await response.Content.ReadAsStringAsync();
+                ViewBag.ResultRandomForest = resultr;
+                var resultatJson = JObject.Parse(resultr);
+                float precisionr = (float)resultatJson.GetValue("RandomForest");
 
-                ViewBag.ResultRandomForest = result;
+                Random_Forest randomforest = new Random_Forest()
+                {
+                    n_estimators = n_estimators,
+                    criterion = criterion,
+                    min_samples_split = min_samples_split,
+                    min_samples_leaf = min_samples_leaf,
+                    min_weight_fraction_leaf = (int)min_weight_fraction_leaf,
+                    max_leaf_nodes = max_leaf_nodes,
+                    min_impurity_decrease = min_impurity_decrease,
+                    n_jobs = n_jobs,
+                    entier_detail = entier_detail,
+                    max_depth = max_depth,
+                    precision=precisionr,
+                };
+                _context.Random_Forest.Add(randomforest);
+                await _context.SaveChangesAsync();
+                Simulation simulation = new Simulation()
+                {
+                    UserId = userId,
+                    idR = randomforest.id,
+                    time = DateTime.Now,
+                    UserName = userName,
+                };
+                _context.Add(simulation);
+                await _context.SaveChangesAsync();
             }
 
+            // SVM
             if (!string.IsNullOrEmpty(Checkbox_SVM) && Checkbox_SVM.Equals("SVM"))
             {
                 var requestData = new
@@ -178,148 +279,49 @@ namespace ProjetRFID.Controllers
                     cache_size,
                     max_iter,
                     decision_function_shape,
-                    testS
+                    test
                 };
 
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/svm", content);
-                var result = await response.Content.ReadAsStringAsync();
+                var results = await response.Content.ReadAsStringAsync();
+                ViewBag.ResultSVM = results;
+                var resultatJson = JObject.Parse(results);
+                float precisions= (float)resultatJson.GetValue("SVM");
 
-                ViewBag.ResultSVM = result;
+
+
+                SVM svm = new SVM()
+                {
+                    C = C,
+                    kernel = kernel,
+                    gamma = gamma,
+                    coef0 = coef0,
+                    tol = tol,
+                    cache_size = cache_size,
+                    max_iter = max_iter,
+                    decision_function_shape = decision_function_shape,
+                    precision = precisions,
+                };
+                _context.SVM.Add(svm);
+                await _context.SaveChangesAsync();
+                Simulation simulation = new Simulation()
+                {
+                    UserId = userId,
+                    idS = svm.id,
+                    time = DateTime.Now,
+                    UserName = userName,
+                };
+                _context.Add(simulation);
+                await _context.SaveChangesAsync();
             }
 
             // Redirection vers la vue Index avec tous les résultats
             return View("Index");
         }
 
-
-
         [HttpPost]
-        public async Task<ActionResult> Traitement(string checkbox_Analytique, string checkbox_KNN, string checkbox_RandomForest, string checkbox_SVM, int n_neighbors, string weight, string metric, float p,
-    string metric_params, string algorithm, int leaf_size, int n_estimators, string criterion,
-    int min_samples_split, int min_samples_leaf, float min_weight_fraction_leaf, int max_leaf_nodes,
-    float min_impurity_decrease, int n_jobs, int entier_detail, int max_depth, float C, string kernel, string gamma,
-    float coef0, float tol, float cache_size, int max_iter, string decision_function_shape)
-        {
-            if (checkbox_Analytique == "Analytique")
-            {
-                Analytique analytique = new Analytique();
-
-                _context.Analytique.Add(analytique);
-                await _context.SaveChangesAsync();
-                Simulation simulation = new Simulation()
-                {
-                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier), // Pour récupérer l'Id de la personne qui est connectée
-                    idA = analytique.id,
-                    time = DateTime.Now,
-                };
-                _context.Update(simulation);
-                await _context.SaveChangesAsync();
-            }
-
-            if (checkbox_KNN == "KNN")
-            {
-                KNN knn = new KNN()
-                {
-                    n_neighbors = n_neighbors,
-                    weight = weight,
-                    metric = metric,
-                    p = p,
-                    metric_params = metric_params,
-                    algorithm = algorithm,
-                    leaf_size = leaf_size,
-                };
-                _context.KNN.Add(knn);
-                await _context.SaveChangesAsync();
-                Simulation simulation = new Simulation()
-                {
-                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier), // Pour récupérer l'Id de la personne qui est connectée
-                    idk = knn.id,
-                    time = DateTime.Now,
-                };
-
-                _context.Add(simulation);
-                await _context.SaveChangesAsync();
-            }
-
-            if (checkbox_RandomForest == "RandomForest")
-            {
-                Random_Forest randomforest = new Random_Forest()
-                {
-                    n_estimators = n_estimators,
-                    criterion = criterion,
-                    min_samples_split = min_samples_split,
-                    min_samples_leaf = min_samples_leaf,
-                    min_weight_fraction_leaf = (int) min_weight_fraction_leaf,
-                    max_leaf_nodes = max_leaf_nodes,
-                    min_impurity_decrease = min_impurity_decrease,
-                    n_jobs = n_jobs,
-                    entier_detail = entier_detail,
-                    max_depth = max_depth,
-                };
-                _context.Random_Forest.Add(randomforest);
-                await _context.SaveChangesAsync();
-                Simulation simulation = new Simulation()
-                {
-                    UserId = User.FindFirstValue(ClaimTypes.NameIdentifier), // Pour récupérer l'Id de la personne qui est connectée
-                    idR = randomforest.id,
-                    time = DateTime.Now,
-                };
-
-                _context.Add(simulation);
-                await _context.SaveChangesAsync();
-            }
-
-            if (checkbox_SVM == "SVM")
-            {
-                using (var client = new HttpClient())
-                {
-                    SVM svm = new SVM()
-                    {
-                        C = C,
-                        kernel = kernel,
-                        gamma = gamma,
-                        coef0 = coef0,
-                        tol = tol,
-                        cache_size = cache_size,
-                        max_iter = max_iter,
-                        decision_function_shape = decision_function_shape,
-                    };
-
-                    var content = new StringContent(JsonConvert.SerializeObject(svm), System.Text.Encoding.UTF8, "application/json");
-                    var response = await client.PostAsync("http://localhost:5000/svm", content);
-                    var result_svm = await response.Content.ReadAsStringAsync();
-
-                    ViewBag.Result = result_svm;
-                    if (float.TryParse(result_svm, out float precisions))
-                    {
-                        return Json(new { precision = precisions });
-                    }
-                    svm.precision = precisions;
-
-                    _context.SVM.Add(svm);
-                    await _context.SaveChangesAsync();
-                    Simulation simulation = new Simulation()
-                    {
-                        UserId = User.FindFirstValue(ClaimTypes.NameIdentifier), // Pour récupérer l'Id de la personne qui est connectée
-                        idS = svm.id,
-                        time = DateTime.Now,
-                    };
-
-                    _context.Add(simulation);
-                    await _context.SaveChangesAsync();
-
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-
-            // Ajouter un retour par défaut pour les chemins non traités
-            return RedirectToAction("Index", "Home");
-        }
-
-
-        [HttpPost]
-        public IActionResult DownloadPdf()
+       public IActionResult DownloadPdf()
         {
             using (MemoryStream memoryStream = new MemoryStream())
             {

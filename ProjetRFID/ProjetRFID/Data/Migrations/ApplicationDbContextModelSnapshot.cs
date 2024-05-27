@@ -248,6 +248,9 @@ namespace ProjetRFID.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -364,16 +367,20 @@ namespace ProjetRFID.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("idA")
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("idA")
                         .HasColumnType("int");
 
-                    b.Property<int>("idR")
+                    b.Property<int?>("idR")
                         .HasColumnType("int");
 
-                    b.Property<int>("idS")
+                    b.Property<int?>("idS")
                         .HasColumnType("int");
 
-                    b.Property<int>("idk")
+                    b.Property<int?>("idk")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("time")
@@ -490,27 +497,19 @@ namespace ProjetRFID.Data.Migrations
                 {
                     b.HasOne("ProjetRFID.Models.Analytique", "Analytique")
                         .WithMany()
-                        .HasForeignKey("idA")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("idA");
 
                     b.HasOne("ProjetRFID.Models.Random_Forest", "Random_Forest")
                         .WithMany()
-                        .HasForeignKey("idR")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("idR");
 
                     b.HasOne("ProjetRFID.Models.SVM", "SVM")
                         .WithMany()
-                        .HasForeignKey("idS")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("idS");
 
                     b.HasOne("ProjetRFID.Models.KNN", "KNN")
                         .WithMany()
-                        .HasForeignKey("idk")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("idk");
 
                     b.Navigation("Analytique");
 

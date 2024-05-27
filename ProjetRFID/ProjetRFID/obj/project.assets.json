@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "BouncyCastle/1.8.9": {
-        "type": "package",
-        "compile": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        },
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        }
-      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -605,11 +596,8 @@
           }
         }
       },
-      "iTextSharp/5.5.13.3": {
+      "iTextSharp/5.5.12": {
         "type": "package",
-        "dependencies": {
-          "BouncyCastle": "1.8.9"
-        },
         "compile": {
           "lib/itextsharp.dll": {}
         },
@@ -4121,19 +4109,6 @@
     }
   },
   "libraries": {
-    "BouncyCastle/1.8.9": {
-      "sha512": "axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
-      "type": "package",
-      "path": "bouncycastle/1.8.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "bouncycastle.1.8.9.nupkg.sha512",
-        "bouncycastle.nuspec",
-        "lib/BouncyCastle.Crypto.dll"
-      ]
-    },
     "Humanizer/2.14.1": {
       "sha512": "/FUTD3cEceAAmJSCPN9+J+VhGwmL/C12jvwlyM1DFXShEMsBzvLzLqSrJ2rb+k/W2znKw7JyflZgZpyE+tI7lA==",
       "type": "package",
@@ -4880,16 +4855,15 @@
         "logo.png"
       ]
     },
-    "iTextSharp/5.5.13.3": {
-      "sha512": "vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
+    "iTextSharp/5.5.12": {
+      "sha512": "11kZ6NWkChRUbMXIkBIXvlPVaf6gvE8xzrvg04AcRGWOeS4eg6LUAg7L03i1cwYlOE7sgv32uQ61qy3i3UPzkQ==",
       "type": "package",
-      "path": "itextsharp/5.5.13.3",
+      "path": "itextsharp/5.5.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.md",
-        "gnu-agpl-v3.0.md",
-        "itextsharp.5.5.13.3.nupkg.sha512",
+        "AGPL.txt",
+        "itextsharp.5.5.12.nupkg.sha512",
         "itextsharp.nuspec",
         "lib/iTextSharp.xml",
         "lib/itextsharp.dll",
@@ -11544,23 +11518,28 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "NuGet.Configuration >= 6.9.1",
       "NuGet.Frameworks >= 6.9.1",
-      "iTextSharp >= 5.5.13.3"
+      "iTextSharp >= 5.5.12"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mavin\\.nuget\\packages\\": {}
+    "C:\\Users\\33760\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDR\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+      "projectUniqueName": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
       "projectName": "ProjetRFID",
-      "projectPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDR\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
-      "packagesPath": "C:\\Users\\mavin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mavin\\Source\\Repos\\Equipe4_ProjetRFIDR\\ProjetRFID\\ProjetRFID\\obj\\",
+      "projectPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\ProjetRFID.csproj",
+      "packagesPath": "C:\\Users\\33760\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\33760\\Downloads\\Equipe4_ProjetRFID\\ProjetRFID\\ProjetRFID\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\mavin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\33760\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11568,6 +11547,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11631,7 +11611,7 @@
           },
           "iTextSharp": {
             "target": "Package",
-            "version": "[5.5.13.3, )"
+            "version": "[5.5.12, )"
           }
         },
         "imports": [
@@ -11653,7 +11633,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -11662,17 +11642,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'BouncyCastle 1.8.9' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net6.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
-      "libraryId": "BouncyCastle",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Le package 'iTextSharp 5.5.13.3' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net6.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Le package 'iTextSharp 5.5.12' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net6.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
       "libraryId": "iTextSharp",
       "targetGraphs": [
         "net6.0"

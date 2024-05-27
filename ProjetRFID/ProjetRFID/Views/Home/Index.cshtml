@@ -69,7 +69,7 @@
             text-align: center; /* Centrage horizontal du bouton */
         }
 
-        .bouton-envoyer {
+        .bouton-envoyer,.bouton {
             background-color: #4CAF50; /* Couleur de fond verte */
             color: white; /* Couleur du texte blanc */
             padding: 10px 20px; /* Espacement autour du texte */
@@ -79,7 +79,7 @@
             transition: background-color 0.3s ease; /* Transition fluide */
         }
 
-            .bouton-envoyer:hover {
+            .bouton-envoyer,.bouton:hover {
                 background-color: #45a049; /* Couleur de fond plus foncée au survol */
             }
 
@@ -94,11 +94,13 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Result">
+    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
         <div class="import-section">
 
             <label for="file">Importer un fichier :</label>
             <input type="file" id="file" name="file">
+            <label for="test">Test</label>
+            <input type="number" name="test" id="test" step="0.01">
 
 
 
@@ -191,11 +193,6 @@
                         <p>
                             Détail : Il s'agit de la taille de feuilles transmises a BallTree ou KDTree
                         </p>
-                    </div>
-
-                    <div>
-                        <label for="test">Test</label>
-                        <input type="number" name="testK" id="test" step="0.01">
                     </div>
                     <!--   <div>
                          <label for="Entraine">Entrainement</label>
@@ -299,15 +296,6 @@
                             Détail : Profondeur maximale de l’arbre. Si None, les noeuds sont développés jusqu’à ce que toutes les feuilles sont pures ou jusqu’à ce que toutes les feuilles contiennent moins de min_samples_split échantillons.
                         </p>
                     </div>
-                    <div>
-                        <label for="test">Test</label>
-                        <input type="number" name="testR" id="test" step="0.01">
-                    </div>
-                    <div>
-                        <label for="Entraine">Entrainement</label>
-                        <input type="number" name="EntraineR" id="Entraine">
-                    </div>
-
 
                 </div>
             </li>
@@ -400,24 +388,21 @@
                     </div>
 
 
-                    <div>
-                        <label for="test">Test</label>
-                        <input type="number" name="testS" id="test" step="0.01">
-                    </div>
-                    <div>
-                        <label for="Entraine">Entrainement</label>
-                        <input type="number" name="EntraineS" id="Entraine">
-                    </div>
-
+                   
 
 
                 </div>
             </li>
         </ul>
+       
 
 
         <div class="conteneur-bouton">
-            <button type="submit" class="bouton-envoyer" onclick="Result()>Lancer Simulation</button>
+            <button type="submit" class="bouton-envoyer">Lancer Simulation</button>
+            
+        </div>
+        <div class="conteneur-boutton">
+            
             <button type="button" class="bouton" onclick="download()"> Telecharger </button>
         </div>
 

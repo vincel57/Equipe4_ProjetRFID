@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using ProjetRFID.Data;
+using System.Data;
 
 namespace ProjetRFID.Areas.Identity.Pages.Account
 {
@@ -25,13 +26,14 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
-
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, UserManager<IdentityUser> userManager, ApplicationDbContext context, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _logger = logger;
             _userManager = userManager;
             _context = context;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -128,26 +130,50 @@ namespace ProjetRFID.Areas.Identity.Pages.Account
                     if (User.IsInRole("Simple"))
                     {
                         // Redirection pour les utilisateurs avec le rôle "Simple"
-                        return RedirectToAction("Index1", "Home");
+                        return RedirectToAction("Index1 ", "Home");
                     }
 
                     if (User.IsInRole("Admin"))
                     {
                         // Redirection pour les utilisateurs avec le rôle "Simple"
-                        return RedirectToAction("Index", "Historiques");
+                        return RedirectToAction("Admin", "Home");
                     }
 
                     var user = await _userManager.FindByEmailAsync(Input.Email);
+                    var roles = await _userManager.GetRolesAsync(user);
 
-                    // Enregistrer l'historique de connexion
-                    var loginHistory = new Models.Historique
+                    if (roles == null || !roles.Any())
                     {
-                        UserId = user.Id,
-                        time_connex = DateTime.UtcNow,
-                        UserName = user.UserName,
-                    };
-                    _context.Historique.Add(loginHistory);
-                    await _context.SaveChangesAsync();
+                        throw new Exception("User role not found");
+                    }
+
+                    if (roles == null || !roles.Any())
+                    {
+                        throw new Exception("User role not found");
+                    }
+                    var roleName = roles.First();
+
+                    // Récupérer le rôle par nom
+                    var role = await _roleManager.Roles.SingleOrDefaultAsync(r => r.Name == roleName);
+                    if (role == null)
+                    {
+                        throw new Exception("Role not found");
+                    }
+                    if (int.TryParse(role.Id, out int roleId))
+                    {
+
+
+                        // Enregistrer l'historique de connexion
+                        var loginHistory = new Models.Historique
+                        {
+                            UserId = user.Id,
+                            time_connex = DateTime.UtcNow,
+                            UserName = user.UserName,
+                            RoleId = roleId,
+                        };
+                        _context.Historique.Add(loginHistory);
+                        await _context.SaveChangesAsync();
+                    }
                     return Redirect("/Home/Index");
 
                 }

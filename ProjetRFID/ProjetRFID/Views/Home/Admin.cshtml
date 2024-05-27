@@ -1,0 +1,486 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Page Admin";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #28324E; /* Fond bleu sombre */
+            color: #FFFFFF; /* Couleur du texte blanc */
+
+            padding: 20px; /* Espacement autour du contenu */
+        }
+
+        .welcome-title {
+            font-size: 2.5em; /* Taille du titre */
+            text-align: center; /* Centrage horizontal */
+            margin-bottom: 30px; /* Espacement en dessous */
+            text-transform: uppercase; /* Conversion en majuscules */
+            letter-spacing: 2px; /* Espacement entre les lettres */
+        }
+
+        .Menu {
+            list-style-type: none; /* Supprime les puces de la liste */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around; /* Centrage horizontal des éléments */
+        }
+
+            .Menu li {
+                position: relative; /* Position relative pour positionner le sous-menu */
+                width: calc(25% - 20px); /* Largeur des cartes */
+                background-color: rgba(255, 255, 255, 0.1); /* Fond transparent */
+                border-radius: 20px; /* Coins arrondis */
+                padding: 20px; /* Espacement à l'intérieur des cartes */
+                margin: 0 10px; /* Espacement entre les cartes */
+                text-align: center;
+                transition: background-color 0.3s ease; /* Transition fluide */
+            }
+
+                .Menu li:hover {
+                    background-color: rgba(255, 255, 255, 0.3); /* Fond transparent légèrement plus clair au survol */
+                }
+
+                .Menu li label {
+                    cursor: pointer; /* Curseur pointer */
+                }
+
+
+
+        /* Styles pour le formulaire */
+        .form-container {
+            display: none; /* Par défaut, le formulaire est caché */
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+            .form-container input[type="number"] {
+                width: 100px; /* Largeur des champs de nombre */
+            }
+
+            .form-container select {
+                width: 100px; /* Largeur des listes déroulantes */
+            }
+
+        .conteneur-bouton {
+            text-align: center; /* Centrage horizontal du bouton */
+        }
+
+        .navbar {
+            color: white;
+            padding: 20px;
+            justify-content: flex-end; /* Aligne le contenu à droite */
+        }
+
+
+        .bouton-envoyer {
+            background-color: #4CAF50; /* Couleur de fond verte */
+            color: white; /* Couleur du texte blanc */
+            padding: 10px 20px; /* Espacement autour du texte */
+            border: none; /* Pas de bordure */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur pointer */
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .bouton-envoyer:hover {
+                background-color: #45a049; /* Couleur de fond plus foncée au survol */
+            }
+
+        .import-section {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="welcome-title">Bienvenue sur notre site</h1>
+    <div class="navbar">
+        <a href="@Url.Action("Index", "Historiques")">Historique de connexion</a> |
+
+        <a asp-action="Edit" asp-controller="Home">Modification des rôles</a>
+    </div>
+    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Result">
+        <div class="import-section">
+
+            <label for="file">Importer un fichier :</label>
+            <input type="file" id="file" name="file">
+            <label for="test">Test</label>
+            <input type="number" name="test" id="test" step="0.01">
+
+
+
+        </div>
+        <ul class="Menu">
+            <li>
+                <input type="checkbox" id="checkbox_Analytique" name="checkbox_Analytique" value="Analytique" onclick="showForm('Analytique')">
+                <label for="checkbox-Analytique">Méthode Analytique</label>
+                <div id="form-container-Analytique" class="form-container">
+
+                    <!-- Formulaire pour Analytique -->
+
+
+
+
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_KNN" name="checkbox_KNN" value="KNN" onclick="showForm('KNN')">
+                <label for="checkbox-KNN">Méthode KNN</label>
+                <div id="form-container-KNN" class="form-container">
+
+                    <!-- Formulaire pour KNN -->
+                    <div>
+                        <input type="checkbox" name="souhait" value="n_neighbors" id="n_neighbors"><label for="n_neighbors">n_neighbors</label>
+                        <input type="number" name="n_neighbors" id="n_neighbors" value="5" data-default="5">
+                        <p>
+                            Détail : Il s'agit du nombre de voisins à utiliser par défaut pour les requêtes.
+                        </p>
+
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="weight" id="weight"><label for="weight">weight</label>
+
+                        <select name="weight" id="Select">
+
+                            <option value="uniform">uniform</option>
+                            <option value="distance">distance</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit de la fonction de poids utilisée dans la prédiction
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="metric" id="metric"> <label for="metric">metric</label>
+
+                        <select name="metric" id="paramSelect">
+                            <option value="minkowski">minkowski</option>
+                            <option value="euclidean">euclidean</option>
+                            <option value="manhattan">manhattan</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit de la métrique à utiliser pour le calcul de la distance
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="p" id="p"> <label for="p">p</label>
+                        <input type="number" name="p" id="2" value="2" data-default="2" min="2" step=" 0.1">
+                        <p>
+                            Détail : Il s'agit du paramètre de puissance pour la métrique de Minkowski
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="metric_params" id="metric_params"><label for="metric_params">metric_params</label>
+
+                        <select name="metric_params" id="paramSelect">
+                            <option value="None">None</option>
+                            <option value="dict">dict</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit des arguments de mots-clés supplémentaires pour la fonction métrique
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="algorithm" id="algorithm"><label for="algorithm">algorithm</label>
+
+                        <select name="algorithm" id="paramSelect">
+                            <option value="auto">auto</option>
+                            <option value="ball_tree">ball_tree</option>
+                            <option value="kd_tree">kd_tree</option>
+                            <option value="brute">brute</option>
+                        </select>
+                        <p>
+                            Détail : Il s'agit de l'algorithme utilisé pour calculer les voisins les plus proches
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="leaf_size" id="leaf_size"><label for="leaf_size">leaf_size</label>
+                        <input type="number" name="leaf_size" id="leaf_size" value="30" data-default="30" min=" 30">
+                        <p>
+                            Détail : Il s'agit de la taille de feuilles transmises a BallTree ou KDTree
+                        </p>
+                    </div>
+                    <!--   <div>
+                         <label for="Entraine">Entrainement</label>
+                         <input type="number" name="EntraineK" id="Entraine">
+                     </div>
+                     -->
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_RandomForest" name="checkbox_RandomForest" value="RandomForest" onclick="showForm('RandomForest')">
+                <label for="checkbox-RandomForest">Méthode RandomForest</label>
+                <div id="form-container-RandomForest" class="form-container">
+
+                    <!-- Formulaire pour RandomForest -->
+                    <div>
+                        <input type="checkbox" name="souhait" value="n_estimators" id="n_estimators"><label for="Param1">n_estimators</label>
+                        <input type="number" name="Param1" id="Param1" value="100" data-default="100" min=" 100">
+                        <p>
+                            Détail : Il s'agit du nombre d'arbres dans la forêt.
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="criterion" id="criterion"><label for="criterion">criterion</label>
+                        <select name="criterion" id="paramSelect">
+                            <option value="gini">gini</option>
+                            <option value="entropy">entropy</option>
+                            <option value="log_loss">log_loss</option>
+
+                        </select>
+
+                        <p>
+                            Détail : Il s'agit d'une fonction permettant de mesurer la qualité d'une division
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_samples_split" id="min_samples_split"><label for="min_samples_split">min_samples_split</label>
+                        <input type="number" name="min_samples_split" id="min_samples_split" value="2" data-default="2" min="2">
+
+                        <p>
+                            Détail : Il s'agit du nombre minimal d'échantillons requis pour fractionner un noeud interne
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_samples_leaf" id="min_samples_leaf"> <label for="min_samples_leaf">min_samples_leaf</label>
+                        <input type="number" name="min_samples_leaf" id="min_samples_leaf" value="1" data-default="1" min="1">
+
+                        <p>
+                            Détail : Il s'agit du nombre minimal d'échantillons requis pour se trouver au niveau d'un noeud feuille
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_weight_fraction_leaf" id="min_weight_fraction_leaf"><label for="min_weight_fraction_leaf">min_weight_fraction_leaf</label>
+                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.0" data-default="0.0" min="0.0" step="0.01">
+
+                        <p>
+                            Détail : Il s'agit de la fraction pondérée minimale de la somme totale des poids
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_leaf_nodes" id="max_leaf_nodes"> <label for="max_leaf_nodes">max_leaf_nodes</label>
+                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="0" data-default="0" min="0">
+
+                        <p>
+                            Détail : Il s'agit d'un nombre illimité de noeuds
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="min_impurity_decrease" id="min_impurity_decrease"> <label for="min_impurity_decrease">min_impurity_decrease</label>
+                        <input type="number" name="mmin_impurity_decrease" id="min_impurity_decrease" value="0.0" data-default="0.0" min="0.0" step="0.001">
+
+                        <p>
+                            Détail : Un noeud sera scindé si ce découpage induit une diminution de l'impureté
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="n_jobs" id="n_jobs"> <label for="n_jobs">n_jobs</label>
+                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="-100">
+
+                        <p>
+                            Détail : Il s'agit du nombre de tâches à exécuter en parallèle
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="entier_detail" id="entier_detail"> <label for="entier_detaille">entier détaillé</label>
+                        <input type="number" name="entier_detail" id="entier_detail" value="0" data-default="0" min="0">
+
+                        <p>
+                            Détail : Il contrôle le niveau de détail lors de l'ajustement et de la prédiction
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_depth" id="max_depth"> <label for="Param3">max_depth</label>
+                        <input type="number" name="max_depth" id="max_depth" value="0" data-default="0" min="0">
+                        <p>
+                            Détail : Profondeur maximale de l’arbre. Si None, les noeuds sont développés jusqu’à ce que toutes les feuilles sont pures ou jusqu’à ce que toutes les feuilles contiennent moins de min_samples_split échantillons.
+                        </p>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="checkbox_SVM" name="checkbox_SVM" value="SVM" onclick="showForm('SVM')">
+                <label for="checkbox-SVM">Méthode SVM</label>
+                <div id="form-container-SVM" class="form-container">
+
+                    <!-- Formulaire pour SVM -->
+                    <div>
+                        <input type="checkbox" name="souhait" value="C" id="C"> <label for="Param1">C</label>
+                        <input type="number" name="C" id="C" value="1" data-default="1" step="0.1" min="1">
+                        <p>
+                            Détail : Il s'agit du paramètre de régularisation
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="kernel" id="kernel"><label for="kernel">Kernel</label>
+                        <select name="kernel" id="paramSelect">
+                            <option value="rbf">rbf</option>
+                            <option value="linear">linear</option>
+                            <option value="poly">poly</option>
+                            <option value="sigmoid">sigmoid</option>
+                        </select>
+
+                        <p>
+                            Détail : Il spécifie le type de noyau à utiliser dans l’algorithme
+                        </p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="souhait" value="gamma" id="gamma"> <label for="gamma">Gamma</label>
+
+                        <select name="gamma" id="paramSelect">
+                            <option value="scale">scale</option>
+                            <option value="auto">auto</option>
+                        </select>
+                        <p>
+                            Détail : C'est un hyperparamètre de régularisation qui contrôle la flexibilité de la
+                            frontière de décision
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="coef0" id="coef0"> <label for="coef0">coef0</label>
+                        <input type="number" name="coef0" id="coef0" value="0.0" data-default="0.0" min="0.0" step="0.1">
+
+                        <p>
+                            Détail : Il s'agit du terme indépendant dans la fonction du noyau
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="tol" id="tol"><label for="tol">tol</label>
+                        <input type="number" name="tol" id="tol" value="1e-3" data-default="1e-3" step="0.1">
+
+                        <p>
+                            Détail : Il s'agit de la tolérance au critère d'arrêt
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="cache_size" id="cache_size"> <label for="cache_size">cache_size</label>
+                        <input type="number" name="cache_size" id="cache_size" value="200" data-default="200" step="0.1">
+
+                        <p>
+                            Détail : Il s'agit de la taille du cache de noyau en Mo
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="max_iter" id="max_iter">  <label for="max_iter">max_iter</label>
+                        <input type="number" name="max_iter" id="max_iter" value="-1" data-default="-1">
+
+                        <p>
+                            Détail : Il s'agit de la limite stricte sur les itérations dans le solveur
+                        </p>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="souhait" value="decision_function_shape" id="decision_function_shape"> <label for="decision_function_shape">decision_function_shape</label>
+                        <select name="decision_function_shape" id="paramSelect">
+                            <option value="ovo">ovo</option>
+                            <option value="ovr">ovr</option>
+
+                        </select>
+
+                        <p>
+                            Détail : Il spécifie s'il faut renvoyer la fonction de décision un-contre-reste (ovr) ou l'original (ovo)
+                        </p>
+                    </div>
+
+
+
+
+
+                </div>
+            </li>
+        </ul>
+
+
+        <div class="conteneur-bouton">
+            <button type="submit" class="bouton-envoyer" onclick="Result()>Lancer Simulation</button>
+            <button type="button" class="bouton" onclick="download()"> Telecharger </button>
+        </div>
+
+    </form>
+
+
+    <div class="col-md-8">
+        <div class="result">
+            @if (ViewBag.ResultAnalytique != null)
+            {
+                <h4>Resultat Analytique:</h4>
+                <pre>@Html.Raw(ViewBag.ResultAnalytique)</pre>
+            }
+
+            @if (ViewBag.ResultKNN != null)
+            {
+                <h4>Resultat KNN:</h4>
+                <pre>@Html.Raw(ViewBag.ResultKNN)</pre>
+            }
+
+            @if (ViewBag.ResultRandomForest != null)
+            {
+                <h4>Resultat Random Forest:</h4>
+                <pre>@Html.Raw(ViewBag.ResultRandomForest)</pre>
+            }
+
+            @if (ViewBag.ResultSVM != null)
+            {
+                <h4>Resultat SVM:</h4>
+                <pre>@Html.Raw(ViewBag.ResultSVM)</pre>
+            }
+        </div>
+
+    </div>
+    <!-- Script JavaScript -->
+    <script>
+        function showForm(methodName) {
+            var formContainer = document.getElementById('form-container-' + methodName);
+            if (formContainer.style.display === 'block') {
+                formContainer.style.display = 'none';
+            } else {
+                formContainer.style.display = 'block';
+            }
+
+            // Assure que le formulaire est affiché en bas de la carte
+            window.scrollTo({
+                top: formContainer.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        function download() {
+            document.getElementById('gg').action = '@Url.Action("DownloadPdf", "Home")';
+            document.getElementById('gg').submit();
+        }
+
+        function Result() {
+            document.getElementById('gg').action = '@Url.Action("Result", "Home")';
+            document.getElementById('gg').submit();
+        }
+
+
+    </script>
+</body>
+</html>

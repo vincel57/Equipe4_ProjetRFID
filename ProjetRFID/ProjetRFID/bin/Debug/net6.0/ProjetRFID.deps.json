@@ -16,7 +16,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.29",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "NuGet.Configuration": "6.9.1",
-          "NuGet.Frameworks": "6.9.1"
+          "NuGet.Frameworks": "6.9.1",
+          "iTextSharp": "5.5.12"
         },
         "runtime": {
           "ProjetRFID.dll": {}
@@ -559,6 +560,14 @@
         "resources": {
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
+          }
+        }
+      },
+      "iTextSharp/5.5.12": {
+        "runtime": {
+          "lib/itextsharp.dll": {
+            "assemblyVersion": "5.5.12.0",
+            "fileVersion": "5.5.12.0"
           }
         }
       },
@@ -3114,6 +3123,13 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "iTextSharp/5.5.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-11kZ6NWkChRUbMXIkBIXvlPVaf6gvE8xzrvg04AcRGWOeS4eg6LUAg7L03i1cwYlOE7sgv32uQ61qy3i3UPzkQ==",
+      "path": "itextsharp/5.5.12",
+      "hashPath": "itextsharp.5.5.12.nupkg.sha512"
     },
     "MessagePack/2.1.152": {
       "type": "package",

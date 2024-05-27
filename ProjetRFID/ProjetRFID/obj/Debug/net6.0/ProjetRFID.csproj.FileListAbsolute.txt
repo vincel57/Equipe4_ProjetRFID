@@ -1432,3 +1432,4 @@ C:\Users\33760\Downloads\Equipe4_ProjetRFID\ProjetRFID\ProjetRFID\obj\Debug\net6
 C:\Users\33760\Downloads\Equipe4_ProjetRFID\ProjetRFID\ProjetRFID\obj\Debug\net6.0\ProjetRFID.pdb
 C:\Users\33760\Downloads\Equipe4_ProjetRFID\ProjetRFID\ProjetRFID\obj\Debug\net6.0\ProjetRFID.genruntimeconfig.cache
 C:\Users\33760\Downloads\Equipe4_ProjetRFID\ProjetRFID\ProjetRFID\obj\Debug\net6.0\ref\ProjetRFID.dll
+C:\Users\33760\Downloads\Equipe4_ProjetRFID\ProjetRFID\ProjetRFID\bin\Debug\net6.0\itextsharp.dll

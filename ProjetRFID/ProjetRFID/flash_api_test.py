@@ -29,8 +29,8 @@ def unzip_folder(zip_file, output_dir):
 
 
 
-file_path='C:/Users/mavin/source/repos/Equipe4_ProjetRFIDF/ProjetRFID/ProjetRFID/data_anonymous'
-directory= 'C:/Users/mavin/source/repos/Equipe4_ProjetRFIDF/ProjetRFID/ProjetRFID/Folder'
+file_path='C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/data_anonymous'
+directory= 'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/Folder'
 
 if est_fichier_zip(file_path):
     d = directory
@@ -79,7 +79,7 @@ def knn_route():
                               input_params['metric_params'],  # Remove extra space here
                               input_params['algorithm'],
                               input_params['leaf_size'],
-                              test_size=input_params['testK'],
+                              test_size=input_params['test'],
                               random_state=42)
 
         # Return the prediction as JSON
@@ -100,7 +100,7 @@ def svm_route():
         
 
         # Call the svm() function to make a prediction
-        accuracy_svm = SVM(data, input_params['C'],  input_params['kernel'],input_params['gamma'],input_params['coef0'], input_params['tol'], input_params['cache_size'], input_params['max_iter'], input_params['decision_function_shape'],test_size=input_params['testS'],random_state=42 )
+        accuracy_svm = SVM(data, input_params['C'],  input_params['kernel'],input_params['gamma'],input_params['coef0'], input_params['tol'], input_params['cache_size'], input_params['max_iter'], input_params['decision_function_shape'],test_size=input_params['test'],random_state=42 )
         # Return the prediction as JSON
         return jsonify({'SVM': accuracy_svm}), 200
     except Exception as e:
@@ -117,7 +117,7 @@ def random_route():
             return jsonify({'error': 'Invalid input parameters'}), 400
         print(input_params['testR'])  
         # Call the random_forest_retries() function to make a prediction
-        accuracy_rf =  RandomForestML(data,input_params['n_estimators'], input_params['max_depth'], input_params['criterion'],  input_params['min_samples_split'], input_params['min_samples_leaf'], input_params['min_weight_fraction_leaf'], input_params['max_leaf_nodes'], input_params['min_impurity_decrease'], input_params['n_jobs'], test_size=input_params['testR'], random_state=42 )
+        accuracy_rf =  RandomForestML(data,input_params['n_estimators'], input_params['max_depth'], input_params['criterion'],  input_params['min_samples_split'], input_params['min_samples_leaf'], input_params['min_weight_fraction_leaf'], input_params['max_leaf_nodes'], input_params['min_impurity_decrease'], input_params['n_jobs'], test_size=input_params['test'], random_state=42 )
         # Return the prediction as JSON
         return jsonify({'RandomForest': accuracy_rf}), 200
     except Exception as e:
@@ -134,7 +134,7 @@ def compare():
             return jsonify({'error': 'Invalid input parameters'}), 400
         print(input_params['testR'])  
         # Call the random_forest_retries() function to make a prediction
-        accuracy_rf =  RandomForestML(data,input_params['n_estimators'], input_params['max_depth'], input_params['criterion'],  input_params['min_samples_split'], input_params['min_samples_leaf'], input_params['min_weight_fraction_leaf'], input_params['max_leaf_nodes'], input_params['min_impurity_decrease'], input_params['n_jobs'], test_size=input_params['testR'], random_state=42 )
+        accuracy_rf =  RandomForestML(data,input_params['n_estimators'], input_params['max_depth'], input_params['criterion'],  input_params['min_samples_split'], input_params['min_samples_leaf'], input_params['min_weight_fraction_leaf'], input_params['max_leaf_nodes'], input_params['min_impurity_decrease'], input_params['n_jobs'], test_size=input_params['test'], random_state=42 )
         # Return the prediction as JSON
         return jsonify({'RandomForest': accuracy_rf}), 200
     except Exception as e:

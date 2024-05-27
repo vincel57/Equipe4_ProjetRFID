@@ -56,7 +56,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,time_connex,UserId,UserName")] Historique historique)
+        public async Task<IActionResult> Create([Bind("id,time_connex,UserId,UserName,RoleId")] Historique historique)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace ProjetRFID.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,time_connex,UserId,UserName")] Historique historique)
+        public async Task<IActionResult> Edit(int id, [Bind("id,time_connex,UserId,UserName,RoleId")] Historique historique)
         {
             if (id != historique.id)
             {

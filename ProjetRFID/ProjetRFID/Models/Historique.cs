@@ -10,6 +10,8 @@ namespace ProjetRFID.Models
         public string UserId { get; set; }
         [ForeignKey("AspNetUsers")]
         public string UserName { get; set; }
-        
+        [ForeignKey("AspNetUserRoles")]
+        public int RoleId { get; set; }
+
     }
 }

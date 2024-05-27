@@ -70,7 +70,7 @@ def unzip_folder(zip_file, output_dir):
 
 # reflist: list of epc in each box
 reflist = pd.DataFrame()
-pathfile=r'C:\Users\mavin\source\repos\Equipe4_ProjetRFIDF\ProjetRFID\ProjetRFID\data_anonymous'
+pathfile=r'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/data_anonymous'
 files=os.listdir(pathfile)
 for file in files:
     #print(file)
