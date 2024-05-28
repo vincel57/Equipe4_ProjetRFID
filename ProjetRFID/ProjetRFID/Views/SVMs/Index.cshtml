@@ -1,17 +1,74 @@
 ﻿@model IEnumerable<ProjetRFID.Models.SVM>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "éthode SVM";
 }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #28324E; /* Fond bleu sombre */
+        color: #FFFFFF; /* Couleur du texte blanc */
+        padding: 20px; /* Espacement autour du contenu */
+    }
 
-<h1>Index</h1>
+    .welcome-title {
+        font-size: 2.5em; /* Taille du titre */
+        text-align: center; /* Centrage horizontal */
+        margin-bottom: 30px; /* Espacement en dessous */
+        text-transform: uppercase; /* Conversion en majuscules */
+        letter-spacing: 2px; /* Espacement entre les lettres */
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    .Menu {
+        list-style-type: none; /* Supprime les puces de la liste */
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around; /* Centrage horizontal des éléments */
+    }
+
+        .Menu li {
+            position: relative; /* Position relative pour positionner le sous-menu */
+            width: calc(25% - 20px); /* Largeur des cartes */
+            background-color: #FFFFFF; /* Fond transparent */
+            border-radius: 20px; /* Coins arrondis */
+            padding: 20px; /* Espacement à l'intérieur des cartes */
+            margin: 0 10px; /* Espacement entre les cartes */
+            text-align: center;
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .Menu li:hover {
+                background-color: #FFFFFF; /* Fond transparent légèrement plus clair au survol */
+            }
+
+            .Menu li label {
+                cursor: pointer; /* Curseur pointer */
+            }
+
+    /* Styles pour le formulaire */
+    .form-container {
+        display: none; /* Par défaut, le formulaire est caché */
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    tr {
+        color: white; /* Couleur du texte blanc */
+    }
+</style>
+
+<h1>Méthode SVM</h1>
+
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.C)
             </th>
@@ -45,15 +102,22 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.C)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.kernel)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.gamma)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.coef0)
             </td>
@@ -72,11 +136,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.precision)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
+            
         </tr>
 }
     </tbody>

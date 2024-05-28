@@ -110,12 +110,13 @@
 <body>
 
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    <div class="navbar">
-        <a href="@Url.Action("Index", "Historiques")">Historique de connexion</a> |
+    <div class=" navbar">
+        <a  asp-controller="Historiques" asp-action="Index">Historique de connexion</a> ||
 
-        <a asp-action="Edit" asp-controller="Home">Modification des rôles</a>
+        <a  asp-controller="Users" asp-action="Index">Modifier le rôle</a>
     </div>
     <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Result">
+
         <div class="import-section">
 
             <label for="file">Importer un fichier :</label>
@@ -418,7 +419,7 @@
 
 
         <div class="conteneur-bouton">
-            <button type="submit" class="bouton-envoyer" onclick="Result()>Lancer Simulation</button>
+            <button type="submit" class="bouton-envoyer" onclick="Traitement()">Lancer Simulation</button>
             <button type="button" class="bouton" onclick="download()"> Telecharger </button>
         </div>
 

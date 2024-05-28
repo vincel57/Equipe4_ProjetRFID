@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ProjetRFID.Models.Random_Forest>
+﻿@model IEnumerable<ProjetRFID.Models.Simulation>
 
 @{
-    ViewData["Title"] = "Méthode Random Forest";
+    ViewData["Title"] = "Historique des simulations";
 }
 <style>
     body {
@@ -55,52 +55,41 @@
         margin-top: 10px;
     }
 
-    tr {
+    .inline-link {
+        display: inline-block;
+        margin-right: 15px;
+    }
+         tr {
         color: white; /* Couleur du texte blanc */
     }
 </style>
 
-<h1>Méthode Random Forest</h1>
+<h1>Historique des simulations</h1>
 
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id)
+                @Html.DisplayNameFor(model => model.time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.n_estimators)
+                @Html.DisplayNameFor(model => model.Analytique)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.criterion)
+                @Html.DisplayNameFor(model => model.SVM)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.min_samples_split)
+                @Html.DisplayNameFor(model => model.KNN)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.min_samples_leaf)
+                @Html.DisplayNameFor(model => model.Random_Forest)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.min_weight_fraction_leaf)
+                @Html.DisplayNameFor(model => model.UserId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.max_leaf_nodes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.min_impurity_decrease)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.n_jobs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.entier_detail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.max_depth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.precision)
+                @Html.DisplayNameFor(model => model.UserName)
             </th>
             <th></th>
         </tr>
@@ -108,44 +97,44 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <td>
-                    @Html.DisplayNameFor(model => model.id)
-                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.n_estimators)
+                @Html.DisplayFor(modelItem => item.time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.criterion)
+                @Html.DisplayFor(modelItem => item.Analytique.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.min_samples_split)
+                @Html.DisplayFor(modelItem => item.SVM.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.min_samples_leaf)
+                @Html.DisplayFor(modelItem => item.KNN.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.min_weight_fraction_leaf)
+                @Html.DisplayFor(modelItem => item.Random_Forest.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.max_leaf_nodes)
+                @Html.DisplayFor(modelItem => item.UserId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.min_impurity_decrease)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.n_jobs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.entier_detail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.max_depth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precision)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
            
         </tr>
 }
+        <div class="inline-link">
+            <a href="@Url.Action("Index", "Analytiques")">Méthode Analytique</a>
+        </div>
+        <div class="inline-link">
+            <a href="@Url.Action("Index", "KNNs")">Méthode KNN</a>
+        </div>
+        <div class="inline-link">
+            <a href="@Url.Action("Index", "Random_Forest")">Méthode Random Forest</a>
+        </div>
+        <div class="inline-link">
+            <a href="@Url.Action("Index", "SVMs")">Méthode SVM</a>
+        </div>
+
+
+
     </tbody>
 </table>

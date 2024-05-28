@@ -182,11 +182,5 @@ namespace ProjetRFID.Controllers
         {
           return (_context.Simulation?.Any(e => e.id == id)).GetValueOrDefault();
         }
-        public IActionResult Index2()
-        {
-            return View();
-        }
-
-
     }
 }

@@ -1,7 +1,6 @@
-﻿@model IEnumerable<ProjetRFID.Models.Analytique>
-
+﻿@model ProjetRFID.ViewModels.EditUserRoleViewModel
 @{
-    ViewData["Title"] = "Méthode Analytique";
+    ViewBag.Title = "Modifier le rôle";
 }
 <style>
     body {
@@ -59,35 +58,37 @@
         color: white; /* Couleur du texte blanc */
     }
 </style>
+<h1>Veuillez modifier le rôle</h1>
 
-<h1>Méthode Analytique</h1>
+<h2>@Model.Email</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
 
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="UserId" />
+            <div>
+                @* <label asp-for="Email">@Model.Email</label>*@
+                <input type="hidden" asp-for="Email"  />
+            </div>
+            <div>
+                @foreach (var role in Model.AllRoles)
+                {
+                    <div>
+                        <input type="radio" name="selectedRoles" value="@role.Name"
+                        @(Model.Roles != null && Model.Roles.Contains(role.Name) ? "checked" : "") />
+                        <label>@role.Name</label>
+                    </div>
+                }
+            </div>
+            <button type="submit">Enregistrer</button>
+        </form>
+    </div>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(model => model.id)
-               
-            </td>
-            <td>
-                @Html.DisplayNameFor(model => model.precison)
-            </td>
-            
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-                
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.precison)
-            </td>
-            
-        </tr>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-    </tbody>
-</table>
+

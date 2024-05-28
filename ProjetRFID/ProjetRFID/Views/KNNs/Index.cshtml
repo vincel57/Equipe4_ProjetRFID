@@ -1,17 +1,74 @@
 ﻿@model IEnumerable<ProjetRFID.Models.KNN>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Méthode KNN";
 }
 
-<h1>Index</h1>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #28324E; /* Fond bleu sombre */
+        color: #FFFFFF; /* Couleur du texte blanc */
+        padding: 20px; /* Espacement autour du contenu */
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    .welcome-title {
+        font-size: 2.5em; /* Taille du titre */
+        text-align: center; /* Centrage horizontal */
+        margin-bottom: 30px; /* Espacement en dessous */
+        text-transform: uppercase; /* Conversion en majuscules */
+        letter-spacing: 2px; /* Espacement entre les lettres */
+    }
+
+    .Menu {
+        list-style-type: none; /* Supprime les puces de la liste */
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around; /* Centrage horizontal des éléments */
+    }
+
+        .Menu li {
+            position: relative; /* Position relative pour positionner le sous-menu */
+            width: calc(25% - 20px); /* Largeur des cartes */
+            background-color: #FFFFFF; /* Fond transparent */
+            border-radius: 20px; /* Coins arrondis */
+            padding: 20px; /* Espacement à l'intérieur des cartes */
+            margin: 0 10px; /* Espacement entre les cartes */
+            text-align: center;
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .Menu li:hover {
+                background-color: #FFFFFF; /* Fond transparent légèrement plus clair au survol */
+            }
+
+            .Menu li label {
+                cursor: pointer; /* Curseur pointer */
+            }
+
+    /* Styles pour le formulaire */
+    .form-container {
+        display: none; /* Par défaut, le formulaire est caché */
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    tr {
+        color: white; /* Couleur du texte blanc */
+    }
+</style>
+<h1>Méthode KNN</h1>
+
+
 <table class="table">
     <thead>
         <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.n_neighbors)
             </th>
@@ -42,6 +99,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+             <td>
+                @Html.DisplayNameFor(model => model.id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.n_neighbors)
             </td>
