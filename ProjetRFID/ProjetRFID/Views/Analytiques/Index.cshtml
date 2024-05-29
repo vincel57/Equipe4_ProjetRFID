@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<ProjetRFID.Models.Analytique>
 
-@{
     ViewData["Title"] = "Méthode Analytique";
 }
 <style>
@@ -78,6 +77,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+   
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.id)

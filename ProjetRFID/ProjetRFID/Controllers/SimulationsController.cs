@@ -44,10 +44,28 @@ namespace ProjetRFID.Controllers
             {
                 return NotFound();
             }
+            if (simulation.idA.HasValue)
+            {
+                return RedirectToAction("Details", "Analytiques", new { id = simulation.idA });
+            }
+            if (simulation.idk.HasValue)
+            {
+                return RedirectToAction("Details", "KNNs", new { id = simulation.idk });
+            }
+             if (simulation.idR.HasValue)
+            {
+                return RedirectToAction("Details", "Random_Forest", new { id = simulation.idR });
+            }
+             if (simulation.idS.HasValue)
+            {
+                return RedirectToAction("Details", "SVMs", new { id = simulation.idS });
+            }
 
+            // Si aucune méthode spécifique n'est trouvée, affiche les détails de la simulation
             return View(simulation);
         }
 
+            
         // GET: Simulations/Create
         public IActionResult Create()
         {
@@ -176,6 +194,26 @@ namespace ProjetRFID.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Index4(string filterName, DateTime? filterDate)
+        {
+            var simulations = from s in _context.Simulation
+                              select s;
+
+            if (!String.IsNullOrEmpty(filterName))
+            {
+                simulations = simulations.Where(s => s.UserName.Contains(filterName));
+            }
+
+            if (filterDate.HasValue)
+            {
+                simulations = simulations.Where(s => s.time.Date == filterDate.Value.Date);
+            }
+
+            ViewData["CurrentFilterName"] = filterName;
+            ViewData["CurrentFilterDate"] = filterDate?.ToString("yyyy-MM-dd");
+
+            return View(await simulations.ToListAsync());
         }
 
         private bool SimulationExists(int id)

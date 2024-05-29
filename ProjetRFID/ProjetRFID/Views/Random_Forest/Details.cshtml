@@ -3,11 +3,72 @@
 @{
     ViewData["Title"] = "Details";
 }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #28324E; /* Fond bleu sombre */
+        color: #FFFFFF; /* Couleur du texte blanc */
+        padding: 20px; /* Espacement autour du contenu */
+    }
+
+    .welcome-title {
+        font-size: 2.5em; /* Taille du titre */
+        text-align: center; /* Centrage horizontal */
+        margin-bottom: 30px; /* Espacement en dessous */
+        text-transform: uppercase; /* Conversion en majuscules */
+        letter-spacing: 2px; /* Espacement entre les lettres */
+    }
+
+    .Menu {
+        list-style-type: none; /* Supprime les puces de la liste */
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around; /* Centrage horizontal des éléments */
+    }
+
+        .Menu li {
+            position: relative; /* Position relative pour positionner le sous-menu */
+            width: calc(25% - 20px); /* Largeur des cartes */
+            background-color: #FFFFFF; /* Fond transparent */
+            border-radius: 20px; /* Coins arrondis */
+            padding: 20px; /* Espacement à l'intérieur des cartes */
+            margin: 0 10px; /* Espacement entre les cartes */
+            text-align: center;
+            transition: background-color 0.3s ease; /* Transition fluide */
+        }
+
+            .Menu li:hover {
+                background-color: #FFFFFF; /* Fond transparent légèrement plus clair au survol */
+            }
+
+            .Menu li label {
+                cursor: pointer; /* Curseur pointer */
+            }
+
+    /* Styles pour le formulaire */
+    .form-container {
+        display: none; /* Par défaut, le formulaire est caché */
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .inline-link {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    tr {
+        color: white; /* Couleur du texte blanc */
+    }
+</style>
 
 <h1>Details</h1>
 
 <div>
-    <h4>Random_Forest</h4>
+    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -78,7 +139,4 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

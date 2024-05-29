@@ -65,6 +65,17 @@
 </style>
 
 <h1>Historique des simulations</h1>
+<form method="get" asp-action="Index4">
+    <div class="form-group">
+        <label for="filterName">Nom de l'utilisateur</label>
+        <input type="text" name="filterName" id="filterName" class="form-control" value="@ViewData["CurrentFilterName"]" />
+    </div>
+    <div class="form-group">
+        <label for="filterDate">Date de simulation</label>
+        <input type="date" name="filterDate" id="filterDate" class="form-control" value="@ViewData["CurrentFilterDate"]" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrer</button>
+</form>
 
 
 <table class="table">
@@ -100,17 +111,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.time)
             </td>
+                
             <td>
-                @Html.DisplayFor(modelItem => item.Analytique.id)
+                    <a asp-action="Details" asp-route-id="@item.id">Détails</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SVM.id)
+                    <a asp-action="Details" asp-route-id="@item.id">Détails</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KNN.id)
+                    <a asp-action="Details" asp-route-id="@item.id">Détails</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Random_Forest.id)
+                    <a asp-action="Details" asp-route-id="@item.id">Détails</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserId)
@@ -121,19 +133,7 @@
            
         </tr>
 }
-        <div class="inline-link">
-            <a href="@Url.Action("Index", "Analytiques")">Méthode Analytique</a>
-        </div>
-        <div class="inline-link">
-            <a href="@Url.Action("Index", "KNNs")">Méthode KNN</a>
-        </div>
-        <div class="inline-link">
-            <a href="@Url.Action("Index", "Random_Forest")">Méthode Random Forest</a>
-        </div>
-        <div class="inline-link">
-            <a href="@Url.Action("Index", "SVMs")">Méthode SVM</a>
-        </div>
-
+       
 
 
     </tbody>
