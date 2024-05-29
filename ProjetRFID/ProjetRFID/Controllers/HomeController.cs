@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Identity;
 using Document = iTextSharp.text.Document;
 using System.Drawing.Printing;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 
 
@@ -316,17 +317,59 @@ namespace ProjetRFID.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            // Extraire les valeurs des ViewBag
+            float? GetValueFromResult(string result)
+            {
+                if (string.IsNullOrEmpty(result)) return null;
+                var json = JsonConvert.DeserializeObject<Dictionary<string, float>>(result);
+                return json.Values.FirstOrDefault();
+            }
+
+            var ResultAnalytiqueValue = GetValueFromResult(ViewBag.ResultAnalytique);
+            var ResultKNNValue = GetValueFromResult(ViewBag.ResultKNN);
+            var ResultRandomForestValue = GetValueFromResult(ViewBag.ResultRandomForest);
+            var ResultSVMValue = GetValueFromResult(ViewBag.ResultSVM);
+
+            // return DownloadPdf(ResultAnalytiqueValue, ResultKNNValue, ResultRandomForestValue, ResultSVMValue);
+            // Créer un objet dynamique contenant uniquement les valeurs non nulles
+            var req = new
+            {
+                Checkbox_SVM,
+                Checkbox_Analytique,
+                Checkbox_KNN,
+                Checkbox_RandomForest,
+                ResultAnalytique = ResultAnalytiqueValue,
+                ResultKNN = ResultKNNValue,
+                ResultRandomForest = ResultRandomForestValue,
+                ResultSVM = ResultSVMValue
+            };
+
+            var con = new StringContent(JsonConvert.SerializeObject(req), Encoding.UTF8, "application/json");
+            var resp = await client.PostAsync("http://localhost:5000/compare", con);
+            var res = await resp.Content.ReadAsStringAsync();
+
+            ViewBag.Result = res;
             // Redirection vers la vue Index avec tous les résultats
             return View("Index");
+
+            // Redirection vers la vue Index avec tous les résultats
         }
 
         [HttpPost]
-       public IActionResult DownloadPdf()
+        public IActionResult DownloadPdf(string resultAnalytique, string resultKNN, string resultRandomForest, string resultSVM)
         {
-            using (MemoryStream memoryStream = new MemoryStream())
+            // Créer un document PDF
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+
+            // Mémoire tampon pour stocker le PDF
+            MemoryStream memoryStream = new MemoryStream();
+
+            try
             {
-                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                // Créer un écrivain PDF
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+
+                // Ouvrir le document
                 pdfDoc.Open();
 
                 // Ajouter les détails du formulaire
@@ -338,37 +381,51 @@ namespace ProjetRFID.Controllers
                 }
 
                 // Ajouter les résultats des ViewBag
-                pdfDoc.Add(new Paragraph("\nRésultats :"));
+                pdfDoc.Add(new Paragraph("\nComparaison entre les méthodes choisies :"));
 
-                if (ViewBag.ResultAnalytique != null)
+                if (!string.IsNullOrEmpty(resultAnalytique))
                 {
-                    pdfDoc.Add(new Paragraph("Resultat Analytique:"));
-                    pdfDoc.Add(new Paragraph(ViewBag.ResultAnalytique.ToString()));
+                    pdfDoc.Add(new Paragraph("Résultat Analytique:"));
+                    pdfDoc.Add(new Paragraph(resultAnalytique));
                 }
 
-                if (ViewBag.ResultKNN != null)
+                if (!string.IsNullOrEmpty(resultKNN))
                 {
-                    pdfDoc.Add(new Paragraph("Resultat KNN:"));
-                    pdfDoc.Add(new Paragraph(ViewBag.ResultKNN.ToString()));
+                    pdfDoc.Add(new Paragraph("Résultat KNN:"));
+                    pdfDoc.Add(new Paragraph(resultKNN));
                 }
 
-                if (ViewBag.ResultRandomForest != null)
+                if (!string.IsNullOrEmpty(resultRandomForest))
                 {
-                    pdfDoc.Add(new Paragraph("Resultat Random Forest:"));
-                    pdfDoc.Add(new Paragraph(ViewBag.ResultRandomForest.ToString()));
+                    pdfDoc.Add(new Paragraph("Résultat Random Forest:"));
+                    pdfDoc.Add(new Paragraph(resultRandomForest));
                 }
 
-                if (ViewBag.ResultSVM != null)
+                if (!string.IsNullOrEmpty(resultSVM))
                 {
-                    pdfDoc.Add(new Paragraph("Resultat SVM:"));
-                    pdfDoc.Add(new Paragraph(ViewBag.ResultSVM.ToString()));
+                    pdfDoc.Add(new Paragraph("Résultat SVM:"));
+                    pdfDoc.Add(new Paragraph(resultSVM));
                 }
 
+                // Ajouter l'image
+                string imagePath = "'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/wwwroot/img/comparaison_.png";
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
+                pdfDoc.Add(image);
+
+                // Fermer le document
                 pdfDoc.Close();
 
-                byte[] bytes = memoryStream.ToArray();
+                // Convertir le document en tableau d'octets
+                byte[] pdfBytes = memoryStream.ToArray();
 
-                return File(bytes, "application/pdf", "FormulaireEtResultats.pdf");
+                // Retourner le PDF en tant que fichier
+                return File(pdfBytes, "application/pdf", "FormulaireEtResultats.pdf");
+            }
+            finally
+            {
+                // Nettoyer les ressources
+                memoryStream.Dispose();
+                pdfDoc.Dispose();
             }
         }
 

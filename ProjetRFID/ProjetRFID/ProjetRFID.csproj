@@ -23,4 +23,8 @@
     <PackageReference Include="NuGet.Frameworks" Version="6.9.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

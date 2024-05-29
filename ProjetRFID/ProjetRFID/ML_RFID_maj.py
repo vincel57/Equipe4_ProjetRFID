@@ -67,7 +67,6 @@ def unzip_folder(zip_file, output_dir):
 
 # In[82]:
 
-
 # reflist: list of epc in each box
 reflist = pd.DataFrame()
 pathfile=r'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/data_anonymous'
@@ -753,11 +752,11 @@ from sklearn.preprocessing import LabelEncoder
 # max_depth plus grand capture plus de relations complexes entre les variables d'entrée, 
 # mais augmente le risque de surapprentissage et réduit la capacité de généralisation.
 
-def RandomForestML(ds, nb_arbre, max_profondeur, test_size,
-                   criterion='gini', min_samples_split=2, min_samples_leaf=1, 
-                   min_weight_fraction_leaf=0.0, max_leaf_nodes=None, 
-                   min_impurity_decrease=0.0, n_jobs=None, random_state=None):
+def RandomForestML(ds, nb_arbre, criterion, min_samples_split, 
+                   min_samples_leaf, min_weight_fraction_leaf, max_leaf_nodes, 
+                   min_impurity_decrease, n_jobs,max_profondeur, test_size, random_state=42):
 
+    print(criterion)    
     # Préparation et mise à l'échelle des données
     X = ds[Xcols_func('rssi & rc only', ds.columns)]
     y = LabelEncoder().fit_transform(ds['actual'])
@@ -894,11 +893,14 @@ def comparaison(resultats, noms_methodes, couleurs):
         plt.text(i, resultat + 1, '{:.2f}%'.format(resultat), ha='center', va='bottom')
 
     # Affichage du graphique
-    plt.show()
-
-
+    filename = f'comparaison_.png'
+    filepath = f'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/wwwroot/img/{filename}'
+    plt.savefig(filepath)
+    print(filepath)
+    plt.close()
+    return filepath
+    
 # In[135]:
-
 
 #resultats = [score1,score2,score3,score4]
 #comparaison(resultats, [" RF ", "KNN", "SVM", "Analytique"], ['orange', None,'red', 'green'])
