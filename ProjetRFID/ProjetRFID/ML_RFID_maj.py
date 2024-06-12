@@ -67,9 +67,10 @@ def unzip_folder(zip_file, output_dir):
 
 # In[82]:
 
+
 # reflist: list of epc in each box
 reflist = pd.DataFrame()
-pathfile=r'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/data_anonymous'
+pathfile=r'C:\Users\mavin\source\repos\Equipe4_ProjetRFID_Recette\ProjetRFID\ProjetRFID\data_anonymous'
 files=os.listdir(pathfile)
 for file in files:
     #print(file)
@@ -894,12 +895,12 @@ def comparaison(resultats, noms_methodes, couleurs):
 
     # Affichage du graphique
     filename = f'comparaison_.png'
-    filepath = f'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/wwwroot/img/{filename}'
+    filepath = f'C:/Users/mavin/source/repos/Equipe4_ProjetRFID_Recette/ProjetRFID/ProjetRFID/wwwroot/img/{filename}'
     plt.savefig(filepath)
     print(filepath)
     plt.close()
     return filepath
-    
+
 # In[135]:
 
 #resultats = [score1,score2,score3,score4]

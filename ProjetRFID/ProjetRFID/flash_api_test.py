@@ -26,23 +26,33 @@ def unzip_folder(zip_file, output_dir):
     #print("La decompression est terminee.")
  
  
-  file_path='C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/data_anonymous'
-  directory= 'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/Folder'
- 
-if est_fichier_zip(file_path):
-    d = directory
-    unzip_folder(file_path, directory)
-else:
-    d=file_path
-pathfile = d
- 
- 
-# Chemin du dossier
+@app.route('/fichier', methods=['POST'])
+def handle_file_path():
+    input_params = request.get_json()
+    file_path = input_params['file_path']
+    directory = input_params['directory']
+    data = None  # Initialiser data a None
+
+    if est_fichier_zip(file_path):
+        # Assure-toi que le repertoire de sortie existe, sinon le creer
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
+        
+            # Decompresser le fichier zip dans le repertoire de sortie
+            unzip_folder(file_path, directory)
+            # Mettre a jour le chemin du fichier pour pointer vers le repertoire extrait
+            file_path = directory
+
+         
+
+file_path='C:/Users/mavin/source/repos/Equipe4_ProjetRFID_Recette/ProjetRFID/ProjetRFID/data_anonymous'
+
 if os.path.exists(file_path):
-    # Le dossier existe, donc tu peux executer la fonction de pretraitement
-    pretrait = pre_traitement(file_path)
-    data = dataset(pretrait[0], pretrait[1], pretrait[2], pretrait[3])
-    print('fichier exist : ')
+   pretrait = pre_traitement(file_path)
+   data = dataset(pretrait[0], pretrait[1], pretrait[2], pretrait[3])
+   print('fichier exist : ')
+
  
  
 @app.route('/result', methods=['POST'])

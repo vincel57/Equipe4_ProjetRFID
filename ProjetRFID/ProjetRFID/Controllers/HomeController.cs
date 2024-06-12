@@ -91,47 +91,52 @@ namespace ProjetRFID.Controllers
 
         [HttpPost]
         public async Task<ActionResult> Traitement(string Checkbox_Analytique, string Checkbox_KNN, string Checkbox_RandomForest, string Checkbox_SVM,
-    int n_neighbors, string weight, string metric, float p, string metric_params, string algorithm,
-    int leaf_size, int n_estimators, string criterion, int min_samples_split, int min_samples_leaf,
-    float min_weight_fraction_leaf, int max_leaf_nodes, float min_impurity_decrease, int n_jobs,
-    int entier_detail, int max_depth, float C, string kernel, string gamma, float coef0, float tol,
-    float cache_size, int max_iter, string decision_function_shape, IFormFile file, float test)
+       int n_neighbors, string weight, string metric, float p, string metric_params, string algorithm,
+       int leaf_size, int n_estimators, string criterion, int min_samples_split, int min_samples_leaf,
+       float min_weight_fraction_leaf, int max_leaf_nodes, float min_impurity_decrease, int n_jobs,
+       int entier_detail, int max_depth, float C, string kernel, string gamma, float coef0, float tol,
+       float cache_size, int max_iter, string decision_function_shape, IFormFile file, double test)
         {
-            //méthode pour convertir en float
+            
+
+            // Méthode pour convertir en float
             float ExtractNumber(string resultA)
             {
                 if (!string.IsNullOrEmpty(resultA))
                 {
-
                     dynamic jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(resultA);
                     if (jsonResult != null && jsonResult.accuracy != null)
                     {
-                        //  accuracy
                         return (float)jsonResult.accuracy;
                     }
                 }
                 return 0;
             }
-            // Gestion du fichier (si nécessaire)
-            string filePath = null;
-            if (file != null)
-            {
-                var directory = "C:\\YourDirectory\\Uploads";
-                var fileName = Path.GetFileName(file.FileName);
-                filePath = Path.Combine(directory, fileName);
 
-                // Créer le répertoire s'il n'existe pas
+            // Gestion du fichier 
+            if (file != null && file.Length > 0)
+            {
+                var directory = Path.Combine("C:", "Users", "mavin", "source", "repos", "Equipe4_ProjetRFID_Recette", "ProjetRFID", "ProjetRFID", "Folder");
+                var fileName = Path.GetFileName(file.FileName);
+                var filePath = Path.Combine(directory, fileName);
+
+                // Créer le répertoire quand il n'est pas présent
                 if (!Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                 }
 
-                // Enregistrer le fichier dans le répertoire spécifié
+                // Enregistrer le fichier dans le répertoire 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
+
+                
+
+
             }
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userManager.FindByIdAsync(userId);
             var userName = user?.UserName;
@@ -141,34 +146,31 @@ namespace ProjetRFID.Controllers
             // Analytique
             if (!string.IsNullOrEmpty(Checkbox_Analytique) && Checkbox_Analytique.Equals("Analytique"))
             {
-                // Appel API
                 var response = await client.PostAsync("http://localhost:5000/result", null);
                 var resultA = await response.Content.ReadAsStringAsync();
 
                 ViewBag.ResultAnalytique = resultA;
 
                 var resultatJson = JObject.Parse(resultA);
-                float precision = (float) resultatJson.GetValue("Analytique");
-                // Enregistrement des données
-                Analytique analytique = new Analytique()
-                    {
-                       precison = precision,
-                    };
-                    _context.Analytique.Add(analytique);
-                    await _context.SaveChangesAsync();
+                float precision = (float)resultatJson.GetValue("Analytique");
 
-                    Simulation simulation = new Simulation()
-                    {
-                        UserId = userId,
-                        idA = analytique.id,
-                        time = DateTime.Now,
-                        UserName = userName,
-                    };
-                    _context.Simulation.Add(simulation); // Utilisez Add au lieu de Update pour ajouter une nouvelle entrée
-                    await _context.SaveChangesAsync();
-                }
-              
-            
+                Analytique analytique = new Analytique()
+                {
+                    precison = precision,
+                };
+                _context.Analytique.Add(analytique);
+                await _context.SaveChangesAsync();
+
+                Simulation simulation = new Simulation()
+                {
+                    UserId = userId,
+                    idA = analytique.id,
+                    time = DateTime.Now,
+                    UserName = userName,
+                };
+                _context.Simulation.Add(simulation);
+                await _context.SaveChangesAsync();
+            }
 
             // KNN
             if (!string.IsNullOrEmpty(Checkbox_KNN) && Checkbox_KNN.Equals("KNN"))
@@ -179,7 +181,7 @@ namespace ProjetRFID.Controllers
                     weight,
                     metric,
                     p,
-                    metric_params,
+                    metric_params = metric_params == "None" ? null : metric_params,
                     algorithm,
                     leaf_size,
                     test
@@ -188,6 +190,7 @@ namespace ProjetRFID.Controllers
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/knn", content);
                 var resultk = await response.Content.ReadAsStringAsync();
+
                 ViewBag.ResultKNN = resultk;
                 var resultatJson = JObject.Parse(resultk);
                 float precisionk = (float)resultatJson.GetValue("KNN");
@@ -201,10 +204,11 @@ namespace ProjetRFID.Controllers
                     metric_params = metric_params,
                     algorithm = algorithm,
                     leaf_size = leaf_size,
-                    precision=precisionk,
+                    precision = precisionk,
                 };
                 _context.KNN.Add(knn);
                 await _context.SaveChangesAsync();
+
                 Simulation simulation = new Simulation()
                 {
                     UserId = userId,
@@ -236,6 +240,7 @@ namespace ProjetRFID.Controllers
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/random", content);
                 var resultr = await response.Content.ReadAsStringAsync();
+
                 ViewBag.ResultRandomForest = resultr;
                 var resultatJson = JObject.Parse(resultr);
                 float precisionr = (float)resultatJson.GetValue("RandomForest");
@@ -252,10 +257,11 @@ namespace ProjetRFID.Controllers
                     n_jobs = n_jobs,
                     entier_detail = entier_detail,
                     max_depth = max_depth,
-                    precision=precisionr,
+                    precision = precisionr,
                 };
                 _context.Random_Forest.Add(randomforest);
                 await _context.SaveChangesAsync();
+
                 Simulation simulation = new Simulation()
                 {
                     UserId = userId,
@@ -286,11 +292,10 @@ namespace ProjetRFID.Controllers
                 var content = new StringContent(JsonConvert.SerializeObject(requestData), System.Text.Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("http://localhost:5000/svm", content);
                 var results = await response.Content.ReadAsStringAsync();
+
                 ViewBag.ResultSVM = results;
                 var resultatJson = JObject.Parse(results);
-                float precisions= (float)resultatJson.GetValue("SVM");
-
-
+                float precisions = (float)resultatJson.GetValue("SVM");
 
                 SVM svm = new SVM()
                 {
@@ -306,6 +311,7 @@ namespace ProjetRFID.Controllers
                 };
                 _context.SVM.Add(svm);
                 await _context.SaveChangesAsync();
+
                 Simulation simulation = new Simulation()
                 {
                     UserId = userId,
@@ -330,7 +336,6 @@ namespace ProjetRFID.Controllers
             var ResultRandomForestValue = GetValueFromResult(ViewBag.ResultRandomForest);
             var ResultSVMValue = GetValueFromResult(ViewBag.ResultSVM);
 
-            // return DownloadPdf(ResultAnalytiqueValue, ResultKNNValue, ResultRandomForestValue, ResultSVMValue);
             // Créer un objet dynamique contenant uniquement les valeurs non nulles
             var req = new
             {
@@ -349,11 +354,11 @@ namespace ProjetRFID.Controllers
             var res = await resp.Content.ReadAsStringAsync();
 
             ViewBag.Result = res;
-            // Redirection vers la vue Index avec tous les résultats
-            return View("Index");
 
             // Redirection vers la vue Index avec tous les résultats
+            return View("Index");
         }
+
 
         [HttpPost]
         public IActionResult DownloadPdf(string resultAnalytique, string resultKNN, string resultRandomForest, string resultSVM)
@@ -407,8 +412,9 @@ namespace ProjetRFID.Controllers
                     pdfDoc.Add(new Paragraph(resultSVM));
                 }
 
+
                 // Ajouter l'image
-                string imagePath = "'C:/Users/33760/Downloads/Equipe4_ProjetRFID/ProjetRFID/ProjetRFID/wwwroot/img/comparaison_.png";
+                string imagePath = "C:/Users/mavin/source/repos/Equipe4_ProjetRFID_Recette/ProjetRFID/ProjetRFID/wwwroot/img/comparaison_.png";
                 iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
                 pdfDoc.Add(image);
 

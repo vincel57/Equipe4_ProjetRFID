@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #28324E; /* Fond bleu sombre */
@@ -132,12 +133,12 @@
 </head>
 <body>
     <h1 class="welcome-title">Bienvenue sur notre site</h1>
-    <form id="gg" class="forms" method="post" asp-controller="Home" asp-action="Traitement">
+    <form id="gg" class="forms" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Traitement" onsubmit="return validateForm()">
         <div class="import-section">
             <label for="file">Importer un fichier :</label>
             <input type="file" id="file" name="file">
             <label for="test">Test</label>
-            <input type="number" name="test" data-default="0.2" id="test" step="0.2">
+            <input type="number" name="test" value="0.2" data-default="0.2" id="test" step="0.2">
         </div>
         <ul class="Menu">
             <li>
@@ -225,32 +226,32 @@
                     </div>
                     <div>
                         <label for="min_samples_split">min_samples_split</label>
-                        <input type="number" name="min_samples_split" id="min_samples_split" value="2" data-default="2" min="2">
+                        <input type="number" name="min_samples_split" id="min_samples_split" value="5" data-default="2" min="2">
                         <p>Détail : Il s'agit du nombre minimal d'échantillons requis pour fractionner un noeud interne</p>
                     </div>
                     <div>
                         <label for="min_samples_leaf">min_samples_leaf</label>
-                        <input type="number" name="min_samples_leaf" id="min_samples_leaf" value="1" data-default="1" min="1">
+                        <input type="number" name="min_samples_leaf" id="min_samples_leaf" value="2" data-default="1" min="1">
                         <p>Détail : Il s'agit du nombre minimal d'échantillons requis pour se trouver au niveau d'un noeud feuille</p>
                     </div>
                     <div>
                         <label for="min_weight_fraction_leaf">min_weight_fraction_leaf</label>
-                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.0" data-default="0.0" min="0.0" step="0.01">
+                        <input type="number" name="min_weight_fraction_leaf" id="min_weight_fraction_leaf" value="0.01" data-default="0.0" min="0.01" step="0.01">
                         <p>Détail : Il s'agit de la fraction pondérée minimale de la somme totale des poids</p>
                     </div>
                     <div>
                         <label for="max_leaf_nodes">max_leaf_nodes</label>
-                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="0" data-default="0" min="0">
+                        <input type="number" name="max_leaf_nodes" id="max_leaf_nodes" value="20" data-default="0" min="0">
                         <p>Détail : Il s'agit d'un nombre illimité de noeuds</p>
                     </div>
                     <div>
                         <label for="min_impurity_decrease">min_impurity_decrease</label>
-                        <input type="number" name="min_impurity_decrease" id="min_impurity_decrease" value="0.0" data-default="0.0" min="0.0" step="0.001">
+                        <input type="number" name="min_impurity_decrease" id="min_impurity_decrease" value="0.001" data-default="0.001" min="0.001" step="0.001">
                         <p>Détail : Un noeud sera scindé si ce découpage induit une diminution de l'impureté</p>
                     </div>
                     <div>
                         <label for="n_jobs">n_jobs</label>
-                        <input type="number" name="n_jobs" id="n_jobs" value="0" data-default="0" min="-100">
+                        <input type="number" name="n_jobs" id="n_jobs" value="-1" data-default="0" min="-100">
                         <p>Détail : Il s'agit du nombre de tâches à exécuter en parallèle</p>
                     </div>
                     <div>
@@ -260,7 +261,7 @@
                     </div>
                     <div>
                         <label for="max_depth">max_depth</label>
-                        <input type="number" name="max_depth" id="max_depth" value="0" data-default="0" min="0">
+                        <input type="number" name="max_depth" id="max_depth" value="10" data-default="0" min="0">
                         <p>Détail : Profondeur maximale de l’arbre. Si None, les noeuds sont développés jusqu’à ce que toutes les feuilles soient pures ou jusqu’à ce que toutes les feuilles contiennent moins de min_samples_split échantillons.</p>
                     </div>
                 </div>
@@ -330,52 +331,54 @@
         <div class="conteneur-boutton">
             <button type="button" class="bouton" onclick="download()">Telecharger</button>
         </div>
-
     </form>
+
 
 
     <div class="col-md-8">
         <div class="result">
             @if (ViewBag.ResultAnalytique != null)
             {
-                <div class="result-section">
-                    <h4>Resultat Analytique:</h4>
-                    <pre>@Html.Raw(ViewBag.ResultAnalytique)</pre>
-                </div>
+                    <div class="result-section">
+                        <h4>Resultat Analytique:</h4>
+                        <pre>@Html.Raw(ViewBag.ResultAnalytique)</pre>
+                    </div>
             }
 
             @if (ViewBag.ResultKNN != null)
             {
-                <div class="result-section">
-                    <h4>Resultat KNN:</h4>
-                    <pre>@Html.Raw(ViewBag.ResultKNN)</pre>
-                </div>
+                    <div class="result-section">
+                        <h4>Resultat KNN:</h4>
+                        <pre>@Html.Raw(ViewBag.ResultKNN)</pre>
+                    </div>
             }
 
             @if (ViewBag.ResultRandomForest != null)
             {
-                <div class="result-section">
-                    <h4>Resultat Random Forest:</h4>
-                    <pre>@Html.Raw(ViewBag.ResultRandomForest)</pre>
-                </div>
+                    <div class="result-section">
+                        <h4>Resultat Random Forest:</h4>
+                        <pre>@Html.Raw(ViewBag.ResultRandomForest)</pre>
+                    </div>
             }
 
             @if (ViewBag.ResultSVM != null)
             {
-                <div class="result-section">
-                    <h4>Resultat SVM:</h4>
-                    <pre>@Html.Raw(ViewBag.ResultSVM)</pre>
-                </div>
+                    <div class="result-section">
+                        <h4>Resultat SVM:</h4>
+                        <pre>@Html.Raw(ViewBag.ResultSVM)</pre>
+                    </div>
             }
 
             @if (ViewBag.Result != null)
             {
-                <div class="result-section">
-                    <h4>Comparaison Graphe:</h4>
-                    <img src="~/img/comparaison_.png" alt="Comparaison Graphe" class="result-image" />
-                </div>
+                    <div class="result-section">
+                        <h4>Comparaison Graphe:</h4>
+                        <img src="~/img/comparaison_.png" alt="Comparaison Graphe" class="result-image" />
+                    </div>
             }
         </div>
+    </div>
+
 
     </div>
     <!-- Script JavaScript -->
@@ -400,7 +403,15 @@
             document.getElementById('gg').submit();
         }
 
-        
+        function validateForm() {
+            var fileInput = document.getElementById('file');
+            if (!fileInput.value) {
+                alert("Veuillez sélectionner un fichier.");
+                return false; // Empêcher l'envoi du formulaire
+            }
+            return true; // Permettre l'envoi du formulaire si un fichier est sélectionné
+        }
+
 
 
     </script>
